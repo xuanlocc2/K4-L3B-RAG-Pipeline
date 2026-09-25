@@ -1,0 +1,19 @@
+name: Block Loc_branch into main
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  block-loc-branch:
+    name: Block Loc_branch into main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Reject the isolated experimental branch
+        shell: bash
+        run: |
+          if [[ "${{ github.head_ref }}" == "Loc_branch" ]]; then
+            echo "Loc_branch is an isolated alternative approach and must not merge into main."
+            exit 1
+          fi
+          echo "Source branch is allowed by this guard."
