@@ -10,6 +10,7 @@ readme = "README.md"
 requires-python = ">=3.10,<3.14"
 dependencies = [
     "anthropic>=0.40.0,<2",
+    "beautifulsoup4>=4.12,<5",
     "chromadb>=0.5.0,<2",
     "crawl4ai==0.9.3",
     "datasets>=4.0.0,<6",

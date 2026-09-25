@@ -13,8 +13,25 @@ Nếu website chặn crawler, hãy chọn nguồn công khai khác; không vư�
 
 from pathlib import Path
 
+import requests
+
 
 DATA_DIR = Path(__file__).parent.parent / "data" / "landing" / "legal"
+
+# Nguồn chính thức của Cổng Thông tin điện tử Chính phủ.  Các văn bản được
+# chọn bao phủ đăng ký hộ kinh doanh, biểu mẫu/thuế và chính sách hỗ trợ khu
+# vực kinh tế tư nhân có áp dụng cho hộ kinh doanh.
+DOCUMENT_SOURCES = {
+    "nghi-dinh-168-2025-dang-ky-doanh-nghiep.pdf": (
+        "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/7/168nd.signed.pdf"
+    ),
+    "thong-tu-94-2025-thue-ho-kinh-doanh.pdf": (
+        "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/10/94-btc.signed.pdf"
+    ),
+    "nghi-quyet-198-2025-phat-trien-kinh-te-tu-nhan.pdf": (
+        "https://datafiles.chinhphu.vn/cpp/files/vbpq/2025/5/198_nq.pdf"
+    ),
+}
 
 
 def setup_directory() -> None:
@@ -25,19 +42,16 @@ def setup_directory() -> None:
 
 def download_documents() -> None:
     """Tải ít nhất 3 PDF/DOCX từ nguồn công khai."""
-    # TODO: Có thể tải thủ công hoặc dùng requests.
-    #
-    # Ví dụ:
-    # import requests
-    #
-    # sources = {
-    #     "policy-a.pdf": "https://example.edu/policy-a.pdf",
-    # }
-    # for filename, url in sources.items():
-    #     response = requests.get(url, timeout=30)
-    #     response.raise_for_status()
-    #     (DATA_DIR / filename).write_bytes(response.content)
-    raise NotImplementedError("Implement download_documents")
+    setup_directory()
+    headers = {"User-Agent": "Mozilla/5.0 (educational RAG lab; contact: local)"}
+    for filename, url in DOCUMENT_SOURCES.items():
+        output = DATA_DIR / filename
+        response = requests.get(url, headers=headers, timeout=60)
+        response.raise_for_status()
+        if not response.content.startswith(b"%PDF"):
+            raise ValueError(f"Nguồn không trả về PDF hợp lệ: {url}")
+        output.write_bytes(response.content)
+        print(f"Saved: {output} ({len(response.content):,} bytes)")
 
 
 if __name__ == "__main__":
