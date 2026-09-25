@@ -1,0 +1,970 @@
+{
+  "config": {
+    "top_k": 5,
+    "embedding_model": "BAAI/bge-m3"
+  },
+  "strategy_a_dense_only": {
+    "aggregate": {
+      "total_cases": 22,
+      "in_domain_cases": 20,
+      "ood_cases": 2,
+      "context_precision_overall": 0.509090909090909,
+      "context_recall_overall": 0.8409090909090909,
+      "context_precision_in_domain": 0.5599999999999999,
+      "context_recall_in_domain": 0.925,
+      "source_hit_rate_in_domain": 1.0,
+      "avg_latency_ms": 480.3554909092947,
+      "avg_top1_score_in_domain": 0.6603941589593887,
+      "avg_top1_score_ood": 0.47531700134277344
+    },
+    "per_case": [
+      {
+        "id": "Q01",
+        "category": "factual",
+        "difficulty": "easy",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md"
+        ],
+        "retrieved_ids": [
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-1",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+          "news/article_02.md::chunk-19",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1"
+        ],
+        "top1_id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-1",
+        "top1_score": 0.7095671892166138,
+        "context_precision": 0.8,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 8513.713199999984
+      },
+      {
+        "id": "Q02",
+        "category": "factual",
+        "difficulty": "easy",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md",
+          "legal/thong_tu_08_2022_tuyen_sinh.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-2",
+          "news/article_05.md::chunk-1",
+          "news/article_02.md::chunk-18"
+        ],
+        "top1_id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+        "top1_score": 0.6269232630729675,
+        "context_precision": 0.6,
+        "context_recall": 0.5,
+        "source_hit": true,
+        "latency_ms": 98.22209999947518
+      },
+      {
+        "id": "Q03",
+        "category": "lexical",
+        "difficulty": "easy",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md"
+        ],
+        "retrieved_ids": [
+          "news/article_02.md::chunk-20",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+          "news/article_02.md::chunk-19",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-3",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-1"
+        ],
+        "top1_id": "news/article_02.md::chunk-20",
+        "top1_score": 0.7563502788543701,
+        "context_precision": 0.2,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 99.83550000106334
+      },
+      {
+        "id": "Q04",
+        "category": "lexical",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-6",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-5",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+          "news/article_02.md::chunk-20",
+          "news/article_02.md::chunk-18"
+        ],
+        "top1_id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-6",
+        "top1_score": 0.6869250535964966,
+        "context_precision": 0.6,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 100.56349999831582
+      },
+      {
+        "id": "Q05",
+        "category": "factual",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-5",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+          "news/article_02.md::chunk-20",
+          "news/article_02.md::chunk-18",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-6"
+        ],
+        "top1_id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-5",
+        "top1_score": 0.6675071716308594,
+        "context_precision": 0.6,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 101.15720000067085
+      },
+      {
+        "id": "Q06",
+        "category": "factual",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-0",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-2",
+          "news/article_02.md::chunk-17",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-0"
+        ],
+        "top1_id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+        "top1_score": 0.6664276123046875,
+        "context_precision": 0.6,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 95.30100000120001
+      },
+      {
+        "id": "Q07",
+        "category": "factual",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-2",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-3",
+          "news/article_02.md::chunk-17",
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-2"
+        ],
+        "top1_id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-2",
+        "top1_score": 0.6893789768218994,
+        "context_precision": 0.4,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 97.89850000015576
+      },
+      {
+        "id": "Q08",
+        "category": "multi-document",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_ngoai_ngu_dau_vao.md",
+          "news/article_03.md",
+          "news/article_04.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+          "news/article_03.md::chunk-1",
+          "news/article_04.md::chunk-0",
+          "news/article_03.md::chunk-0",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-2"
+        ],
+        "top1_id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+        "top1_score": 0.7021543979644775,
+        "context_precision": 0.8,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 91.21240000058606
+      },
+      {
+        "id": "Q09",
+        "category": "factual",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/thong_tu_08_2022_tuyen_sinh.md"
+        ],
+        "retrieved_ids": [
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-0",
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-1",
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-2",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-6"
+        ],
+        "top1_id": "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-0",
+        "top1_score": 0.7054198980331421,
+        "context_precision": 0.6,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 105.4760000006354
+      },
+      {
+        "id": "Q10",
+        "category": "multi-document",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md",
+          "news/article_06.md"
+        ],
+        "retrieved_ids": [
+          "news/article_07.md::chunk-0",
+          "news/article_07.md::chunk-1",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-2",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1"
+        ],
+        "top1_id": "news/article_07.md::chunk-0",
+        "top1_score": 0.6243674159049988,
+        "context_precision": 0.6,
+        "context_recall": 0.5,
+        "source_hit": true,
+        "latency_ms": 96.34150000056252
+      },
+      {
+        "id": "Q11",
+        "category": "lexical",
+        "difficulty": "easy",
+        "expected_sources": [
+          "legal/thong_tu_dieu_kien_xet_tuyen.md"
+        ],
+        "retrieved_ids": [
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-3",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-2",
+          "news/article_02.md::chunk-27",
+          "news/article_02.md::chunk-17",
+          "news/article_02.md::chunk-21"
+        ],
+        "top1_id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-3",
+        "top1_score": 0.6314703822135925,
+        "context_precision": 0.4,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 93.8229000003048
+      },
+      {
+        "id": "Q12",
+        "category": "multi-document",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md",
+          "news/article_07.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-2",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-3",
+          "news/article_02.md::chunk-23",
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-3"
+        ],
+        "top1_id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-2",
+        "top1_score": 0.6192872524261475,
+        "context_precision": 0.4,
+        "context_recall": 0.5,
+        "source_hit": true,
+        "latency_ms": 101.35840000111784
+      },
+      {
+        "id": "Q13",
+        "category": "comparison",
+        "difficulty": "medium",
+        "expected_sources": [
+          "news/article_03.md",
+          "news/article_04.md"
+        ],
+        "retrieved_ids": [
+          "news/article_03.md::chunk-1",
+          "news/article_04.md::chunk-0",
+          "news/article_03.md::chunk-0",
+          "news/article_07.md::chunk-4",
+          "news/article_08.md::chunk-3"
+        ],
+        "top1_id": "news/article_03.md::chunk-1",
+        "top1_score": 0.7288343906402588,
+        "context_precision": 0.6,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 90.74130000044534
+      },
+      {
+        "id": "Q14",
+        "category": "semantic_paraphrase",
+        "difficulty": "medium",
+        "expected_sources": [
+          "news/article_05.md"
+        ],
+        "retrieved_ids": [
+          "news/article_05.md::chunk-1",
+          "news/article_05.md::chunk-0",
+          "news/article_07.md::chunk-1",
+          "news/article_07.md::chunk-0",
+          "news/article_06.md::chunk-1"
+        ],
+        "top1_id": "news/article_05.md::chunk-1",
+        "top1_score": 0.653090238571167,
+        "context_precision": 0.4,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 103.54370000095514
+      },
+      {
+        "id": "Q15",
+        "category": "lexical",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_ngoai_ngu_dau_vao.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-3",
+          "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-2",
+          "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-2"
+        ],
+        "top1_id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-3",
+        "top1_score": 0.5497133731842041,
+        "context_precision": 0.6,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 93.23859999858541
+      },
+      {
+        "id": "Q16",
+        "category": "factual",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+          "news/article_02.md::chunk-19",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-1",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4"
+        ],
+        "top1_id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+        "top1_score": 0.6545861959457397,
+        "context_precision": 0.4,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 92.75799999886658
+      },
+      {
+        "id": "Q17",
+        "category": "source-specific",
+        "difficulty": "easy",
+        "expected_sources": [
+          "news/article_02.md"
+        ],
+        "retrieved_ids": [
+          "news/article_02.md::chunk-35",
+          "news/article_02.md::chunk-33",
+          "news/article_02.md::chunk-16",
+          "news/article_02.md::chunk-17",
+          "news/article_02.md::chunk-11"
+        ],
+        "top1_id": "news/article_02.md::chunk-35",
+        "top1_score": 0.6348823308944702,
+        "context_precision": 1.0,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 103.96430000037071
+      },
+      {
+        "id": "Q18",
+        "category": "semantic_paraphrase",
+        "difficulty": "easy",
+        "expected_sources": [
+          "news/article_01.md"
+        ],
+        "retrieved_ids": [
+          "news/article_01.md::chunk-11",
+          "news/article_01.md::chunk-15",
+          "news/article_01.md::chunk-0",
+          "news/article_01.md::chunk-16",
+          "news/article_01.md::chunk-20"
+        ],
+        "top1_id": "news/article_01.md::chunk-11",
+        "top1_score": 0.6860816478729248,
+        "context_precision": 1.0,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 100.5470999989484
+      },
+      {
+        "id": "Q19",
+        "category": "source-specific",
+        "difficulty": "easy",
+        "expected_sources": [
+          "news/article_08.md"
+        ],
+        "retrieved_ids": [
+          "news/article_01.md::chunk-10",
+          "news/article_02.md::chunk-10",
+          "news/article_01.md::chunk-9",
+          "news/article_02.md::chunk-9",
+          "news/article_08.md::chunk-1"
+        ],
+        "top1_id": "news/article_01.md::chunk-10",
+        "top1_score": 0.4563930034637451,
+        "context_precision": 0.2,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 99.17590000077325
+      },
+      {
+        "id": "Q20",
+        "category": "out_of_domain",
+        "difficulty": "n/a",
+        "expected_sources": [],
+        "retrieved_ids": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "news/article_08.md::chunk-1",
+          "news/article_02.md::chunk-20",
+          "news/article_01.md::chunk-4"
+        ],
+        "top1_id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+        "top1_score": 0.5011154413223267,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "source_hit": false,
+        "latency_ms": 97.82970000014757
+      },
+      {
+        "id": "Q21",
+        "category": "refusal",
+        "difficulty": "n/a",
+        "expected_sources": [],
+        "retrieved_ids": [
+          "news/article_07.md::chunk-2",
+          "news/article_02.md::chunk-16",
+          "news/article_07.md::chunk-6",
+          "news/article_08.md::chunk-5",
+          "news/article_08.md::chunk-1"
+        ],
+        "top1_id": "news/article_07.md::chunk-2",
+        "top1_score": 0.4495185613632202,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "source_hit": false,
+        "latency_ms": 95.66690000065137
+      },
+      {
+        "id": "Q22",
+        "category": "semantic_paraphrase",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-0",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-0",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "news/article_02.md::chunk-17",
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-3"
+        ],
+        "top1_id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-0",
+        "top1_score": 0.7585231065750122,
+        "context_precision": 0.4,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 95.4531000006682
+      }
+    ]
+  },
+  "strategy_b_hybrid_rrf": {
+    "aggregate": {
+      "total_cases": 22,
+      "in_domain_cases": 20,
+      "ood_cases": 2,
+      "context_precision_overall": 0.490909090909091,
+      "context_recall_overall": 0.7954545454545454,
+      "context_precision_in_domain": 0.5400000000000001,
+      "context_recall_in_domain": 0.875,
+      "source_hit_rate_in_domain": 0.95,
+      "avg_latency_ms": 98.4877000000779,
+      "avg_top1_score_in_domain": 0.032476972750720104,
+      "avg_top1_score_ood": 0.01639344262295082
+    },
+    "per_case": [
+      {
+        "id": "Q01",
+        "category": "factual",
+        "difficulty": "easy",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md"
+        ],
+        "retrieved_ids": [
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-1",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+          "news/article_02.md::chunk-19",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3"
+        ],
+        "top1_id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-1",
+        "top1_score": 0.03278688524590164,
+        "context_precision": 0.6,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 106.56569999991916
+      },
+      {
+        "id": "Q02",
+        "category": "factual",
+        "difficulty": "easy",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md",
+          "legal/thong_tu_08_2022_tuyen_sinh.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+          "news/article_05.md::chunk-1",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-2"
+        ],
+        "top1_id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+        "top1_score": 0.03278688524590164,
+        "context_precision": 0.6,
+        "context_recall": 0.5,
+        "source_hit": true,
+        "latency_ms": 97.07979999984673
+      },
+      {
+        "id": "Q03",
+        "category": "lexical",
+        "difficulty": "easy",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md"
+        ],
+        "retrieved_ids": [
+          "news/article_02.md::chunk-20",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+          "news/article_02.md::chunk-19",
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-2",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-3"
+        ],
+        "top1_id": "news/article_02.md::chunk-20",
+        "top1_score": 0.03278688524590164,
+        "context_precision": 0.2,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 105.69679999935033
+      },
+      {
+        "id": "Q04",
+        "category": "lexical",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-5",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-6",
+          "news/article_02.md::chunk-20",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-2"
+        ],
+        "top1_id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+        "top1_score": 0.032266458495966696,
+        "context_precision": 0.8,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 93.973900000492
+      },
+      {
+        "id": "Q05",
+        "category": "factual",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-5",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+          "news/article_02.md::chunk-20",
+          "news/article_01.md::chunk-22",
+          "news/article_02.md::chunk-18"
+        ],
+        "top1_id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-5",
+        "top1_score": 0.03278688524590164,
+        "context_precision": 0.4,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 103.57329999897047
+      },
+      {
+        "id": "Q06",
+        "category": "factual",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "news/article_02.md::chunk-17",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-2",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-0",
+          "news/article_02.md::chunk-18"
+        ],
+        "top1_id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+        "top1_score": 0.03278688524590164,
+        "context_precision": 0.6,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 98.24209999896993
+      },
+      {
+        "id": "Q07",
+        "category": "factual",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-2",
+          "news/article_02.md::chunk-17",
+          "news/article_02.md::chunk-18",
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-3"
+        ],
+        "top1_id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+        "top1_score": 0.03252247488101534,
+        "context_precision": 0.4,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 96.75020000031509
+      },
+      {
+        "id": "Q08",
+        "category": "multi-document",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_ngoai_ngu_dau_vao.md",
+          "news/article_03.md",
+          "news/article_04.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+          "news/article_03.md::chunk-1",
+          "news/article_04.md::chunk-0",
+          "news/article_03.md::chunk-0",
+          "news/article_01.md::chunk-30"
+        ],
+        "top1_id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+        "top1_score": 0.03252247488101534,
+        "context_precision": 0.8,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 97.86180000082823
+      },
+      {
+        "id": "Q09",
+        "category": "factual",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/thong_tu_08_2022_tuyen_sinh.md"
+        ],
+        "retrieved_ids": [
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-0",
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-1",
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-2",
+          "news/article_02.md::chunk-25",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1"
+        ],
+        "top1_id": "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-0",
+        "top1_score": 0.03278688524590164,
+        "context_precision": 0.6,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 101.17300000092655
+      },
+      {
+        "id": "Q10",
+        "category": "multi-document",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md",
+          "news/article_06.md"
+        ],
+        "retrieved_ids": [
+          "news/article_07.md::chunk-1",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+          "news/article_07.md::chunk-0",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+          "news/article_01.md::chunk-17"
+        ],
+        "top1_id": "news/article_07.md::chunk-1",
+        "top1_score": 0.03252247488101534,
+        "context_precision": 0.4,
+        "context_recall": 0.5,
+        "source_hit": true,
+        "latency_ms": 97.47280000010505
+      },
+      {
+        "id": "Q11",
+        "category": "lexical",
+        "difficulty": "easy",
+        "expected_sources": [
+          "legal/thong_tu_dieu_kien_xet_tuyen.md"
+        ],
+        "retrieved_ids": [
+          "news/article_02.md::chunk-17",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-3",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-2",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-2",
+          "news/article_02.md::chunk-27"
+        ],
+        "top1_id": "news/article_02.md::chunk-17",
+        "top1_score": 0.032018442622950824,
+        "context_precision": 0.4,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 97.15440000036324
+      },
+      {
+        "id": "Q12",
+        "category": "multi-document",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md",
+          "news/article_07.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-2",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "news/article_02.md::chunk-23",
+          "news/article_02.md::chunk-18",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-3"
+        ],
+        "top1_id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-2",
+        "top1_score": 0.03278688524590164,
+        "context_precision": 0.4,
+        "context_recall": 0.5,
+        "source_hit": true,
+        "latency_ms": 101.83739999956742
+      },
+      {
+        "id": "Q13",
+        "category": "comparison",
+        "difficulty": "medium",
+        "expected_sources": [
+          "news/article_03.md",
+          "news/article_04.md"
+        ],
+        "retrieved_ids": [
+          "news/article_03.md::chunk-1",
+          "news/article_04.md::chunk-0",
+          "news/article_03.md::chunk-0",
+          "news/article_07.md::chunk-4",
+          "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1"
+        ],
+        "top1_id": "news/article_03.md::chunk-1",
+        "top1_score": 0.03278688524590164,
+        "context_precision": 0.6,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 98.69760000037786
+      },
+      {
+        "id": "Q14",
+        "category": "semantic_paraphrase",
+        "difficulty": "medium",
+        "expected_sources": [
+          "news/article_05.md"
+        ],
+        "retrieved_ids": [
+          "news/article_05.md::chunk-1",
+          "news/article_05.md::chunk-0",
+          "news/article_07.md::chunk-1",
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-2",
+          "news/article_07.md::chunk-0"
+        ],
+        "top1_id": "news/article_05.md::chunk-1",
+        "top1_score": 0.03278688524590164,
+        "context_precision": 0.4,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 100.27609999997367
+      },
+      {
+        "id": "Q15",
+        "category": "lexical",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_ngoai_ngu_dau_vao.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-2",
+          "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-3",
+          "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+          "news/article_01.md::chunk-22",
+          "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-0"
+        ],
+        "top1_id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-2",
+        "top1_score": 0.03225806451612903,
+        "context_precision": 0.8,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 93.04120000160765
+      },
+      {
+        "id": "Q16",
+        "category": "factual",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md"
+        ],
+        "retrieved_ids": [
+          "news/article_02.md::chunk-19",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-2",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+          "news/article_01.md::chunk-31"
+        ],
+        "top1_id": "news/article_02.md::chunk-19",
+        "top1_score": 0.03200204813108039,
+        "context_precision": 0.4,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 96.79369999867049
+      },
+      {
+        "id": "Q17",
+        "category": "source-specific",
+        "difficulty": "easy",
+        "expected_sources": [
+          "news/article_02.md"
+        ],
+        "retrieved_ids": [
+          "news/article_02.md::chunk-35",
+          "news/article_02.md::chunk-33",
+          "news/article_02.md::chunk-16",
+          "news/article_02.md::chunk-19",
+          "news/article_02.md::chunk-17"
+        ],
+        "top1_id": "news/article_02.md::chunk-35",
+        "top1_score": 0.03252247488101534,
+        "context_precision": 1.0,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 97.93300000092131
+      },
+      {
+        "id": "Q18",
+        "category": "semantic_paraphrase",
+        "difficulty": "easy",
+        "expected_sources": [
+          "news/article_01.md"
+        ],
+        "retrieved_ids": [
+          "news/article_01.md::chunk-20",
+          "news/article_01.md::chunk-16",
+          "news/article_01.md::chunk-11",
+          "news/article_01.md::chunk-21",
+          "news/article_01.md::chunk-15"
+        ],
+        "top1_id": "news/article_01.md::chunk-20",
+        "top1_score": 0.03125763125763126,
+        "context_precision": 1.0,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 100.0767999994423
+      },
+      {
+        "id": "Q19",
+        "category": "source-specific",
+        "difficulty": "easy",
+        "expected_sources": [
+          "news/article_08.md"
+        ],
+        "retrieved_ids": [
+          "news/article_01.md::chunk-10",
+          "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-3",
+          "news/article_02.md::chunk-10",
+          "news/article_01.md::chunk-22",
+          "news/article_01.md::chunk-9"
+        ],
+        "top1_id": "news/article_01.md::chunk-10",
+        "top1_score": 0.03177805800756621,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "source_hit": false,
+        "latency_ms": 96.58320000016829
+      },
+      {
+        "id": "Q20",
+        "category": "out_of_domain",
+        "difficulty": "n/a",
+        "expected_sources": [],
+        "retrieved_ids": [
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+          "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-3",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "news/article_01.md::chunk-22",
+          "news/article_08.md::chunk-1"
+        ],
+        "top1_id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4",
+        "top1_score": 0.01639344262295082,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "source_hit": false,
+        "latency_ms": 94.8156000013114
+      },
+      {
+        "id": "Q21",
+        "category": "refusal",
+        "difficulty": "n/a",
+        "expected_sources": [],
+        "retrieved_ids": [
+          "news/article_07.md::chunk-2",
+          "news/article_01.md::chunk-23",
+          "news/article_02.md::chunk-16",
+          "news/article_01.md::chunk-22",
+          "news/article_07.md::chunk-6"
+        ],
+        "top1_id": "news/article_07.md::chunk-2",
+        "top1_score": 0.01639344262295082,
+        "context_precision": 0.0,
+        "context_recall": 0.0,
+        "source_hit": false,
+        "latency_ms": 99.96839999985241
+      },
+      {
+        "id": "Q22",
+        "category": "semantic_paraphrase",
+        "difficulty": "medium",
+        "expected_sources": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md"
+        ],
+        "retrieved_ids": [
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-0",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-0",
+          "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-2",
+          "news/article_02.md::chunk-17"
+        ],
+        "top1_id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-0",
+        "top1_score": 0.03278688524590164,
+        "context_precision": 0.4,
+        "context_recall": 1.0,
+        "source_hit": true,
+        "latency_ms": 91.16259999973408
+      }
+    ]
+  }
+}

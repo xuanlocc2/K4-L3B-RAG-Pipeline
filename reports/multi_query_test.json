@@ -1,0 +1,592 @@
+[
+  {
+    "label": "Factual",
+    "query": "Điều kiện xét tuyển đại học là gì?",
+    "dense": {
+      "label": "DENSE",
+      "query": "Điều kiện xét tuyển đại học là gì?",
+      "top1_score": 0.7115576267242432,
+      "top1_id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+      "results": [
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+          "score": 0.7115576267242432,
+          "method": "dense",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        },
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-1",
+          "score": 0.710541844367981,
+          "method": "dense",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        },
+        {
+          "id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+          "score": 0.63815838098526,
+          "method": "dense",
+          "title": "Quy chế tuyển sinh đại học 2025 — Tóm tắt"
+        },
+        {
+          "id": "news/article_02.md::chunk-19",
+          "score": 0.6338842511177063,
+          "method": "dense",
+          "title": "Trường ĐH công lập xét tuyển bổ sung 9 ngành từ mức 15 điểm"
+        },
+        {
+          "id": "news/article_02.md::chunk-18",
+          "score": 0.6300603747367859,
+          "method": "dense",
+          "title": "Trường ĐH công lập xét tuyển bổ sung 9 ngành từ mức 15 điểm"
+        }
+      ]
+    },
+    "bm25": {
+      "label": "BM25",
+      "query": "Điều kiện xét tuyển đại học là gì?",
+      "top1_score": 43.436957356590156,
+      "top1_id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+      "results": [
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+          "score": 43.436957356590156,
+          "method": "bm25",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        },
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-1",
+          "score": 38.53359443701856,
+          "method": "bm25",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        },
+        {
+          "id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "score": 36.53778942599957,
+          "method": "bm25",
+          "title": "Quy chế thi tốt nghiệp THPT 2025 — Tóm tắt"
+        },
+        {
+          "id": "news/article_02.md::chunk-22",
+          "score": 36.163169856481204,
+          "method": "bm25",
+          "title": "Trường ĐH công lập xét tuyển bổ sung 9 ngành từ mức 15 điểm"
+        },
+        {
+          "id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+          "score": 34.82638259478095,
+          "method": "bm25",
+          "title": "Quy chế tuyển sinh đại học 2025 — Tóm tắt"
+        }
+      ]
+    },
+    "pipeline": {
+      "label": "HYBRID (Task9 pipeline, threshold=0.5)",
+      "query": "Điều kiện xét tuyển đại học là gì?",
+      "top1_score": 0.03278688524590164,
+      "top1_id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+      "results": [
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+          "score": 0.03278688524590164,
+          "method": "hybrid",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        },
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-1",
+          "score": 0.03225806451612903,
+          "method": "hybrid",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        },
+        {
+          "id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+          "score": 0.03125763125763126,
+          "method": "hybrid",
+          "title": "Quy chế tuyển sinh đại học 2025 — Tóm tắt"
+        },
+        {
+          "id": "news/article_02.md::chunk-22",
+          "score": 0.030776515151515152,
+          "method": "hybrid",
+          "title": "Trường ĐH công lập xét tuyển bổ sung 9 ngành từ mức 15 điểm"
+        },
+        {
+          "id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "score": 0.015873015873015872,
+          "method": "hybrid",
+          "title": "Quy chế thi tốt nghiệp THPT 2025 — Tóm tắt"
+        }
+      ]
+    }
+  },
+  {
+    "label": "Paraphrase",
+    "query": "Tôi có thể dùng chứng chỉ IELTS để vào đại học không?",
+    "dense": {
+      "label": "DENSE",
+      "query": "Tôi có thể dùng chứng chỉ IELTS để vào đại học không?",
+      "top1_score": 0.7075119614601135,
+      "top1_id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+      "results": [
+        {
+          "id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+          "score": 0.7075119614601135,
+          "method": "dense",
+          "title": "Quy định chứng chỉ ngoại ngữ và tin học — Tóm tắt"
+        },
+        {
+          "id": "news/article_03.md::chunk-1",
+          "score": 0.6523009538650513,
+          "method": "dense",
+          "title": "Bỏ cộng điểm IELTS nhưng không nên “xóa sổ” học sinh giỏi khi xét tuyển đại học"
+        },
+        {
+          "id": "news/article_03.md::chunk-0",
+          "score": 0.64105224609375,
+          "method": "dense",
+          "title": "Bỏ cộng điểm IELTS nhưng không nên “xóa sổ” học sinh giỏi khi xét tuyển đại học"
+        },
+        {
+          "id": "news/article_04.md::chunk-0",
+          "score": 0.6380745768547058,
+          "method": "dense",
+          "title": "Bỏ cộng điểm IELTS trong xét tuyển đại học: Làm ngay hay cần lộ trình?"
+        },
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-2",
+          "score": 0.6301047205924988,
+          "method": "dense",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        }
+      ]
+    },
+    "bm25": {
+      "label": "BM25",
+      "query": "Tôi có thể dùng chứng chỉ IELTS để vào đại học không?",
+      "top1_score": 59.4975863285798,
+      "top1_id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+      "results": [
+        {
+          "id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+          "score": 59.4975863285798,
+          "method": "bm25",
+          "title": "Quy định chứng chỉ ngoại ngữ và tin học — Tóm tắt"
+        },
+        {
+          "id": "news/article_01.md::chunk-25",
+          "score": 51.65240255289315,
+          "method": "bm25",
+          "title": "Cơ hội học tập đại học Mỹ: Không chỉ có một đường đi"
+        },
+        {
+          "id": "news/article_01.md::chunk-16",
+          "score": 50.703604877997044,
+          "method": "bm25",
+          "title": "Cơ hội học tập đại học Mỹ: Không chỉ có một đường đi"
+        },
+        {
+          "id": "news/article_01.md::chunk-30",
+          "score": 50.34048510124242,
+          "method": "bm25",
+          "title": "Cơ hội học tập đại học Mỹ: Không chỉ có một đường đi"
+        },
+        {
+          "id": "news/article_01.md::chunk-31",
+          "score": 49.62321398507914,
+          "method": "bm25",
+          "title": "Cơ hội học tập đại học Mỹ: Không chỉ có một đường đi"
+        }
+      ]
+    },
+    "pipeline": {
+      "label": "HYBRID (Task9 pipeline, threshold=0.5)",
+      "query": "Tôi có thể dùng chứng chỉ IELTS để vào đại học không?",
+      "top1_score": 0.03278688524590164,
+      "top1_id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+      "results": [
+        {
+          "id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+          "score": 0.03278688524590164,
+          "method": "hybrid",
+          "title": "Quy định chứng chỉ ngoại ngữ và tin học — Tóm tắt"
+        },
+        {
+          "id": "news/article_01.md::chunk-30",
+          "score": 0.030776515151515152,
+          "method": "hybrid",
+          "title": "Cơ hội học tập đại học Mỹ: Không chỉ có một đường đi"
+        },
+        {
+          "id": "news/article_03.md::chunk-1",
+          "score": 0.030621785881252923,
+          "method": "hybrid",
+          "title": "Bỏ cộng điểm IELTS nhưng không nên “xóa sổ” học sinh giỏi khi xét tuyển đại học"
+        },
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-2",
+          "score": 0.030090497737556562,
+          "method": "hybrid",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        },
+        {
+          "id": "news/article_01.md::chunk-25",
+          "score": 0.016129032258064516,
+          "method": "hybrid",
+          "title": "Cơ hội học tập đại học Mỹ: Không chỉ có một đường đi"
+        }
+      ]
+    }
+  },
+  {
+    "label": "Keyword-heavy",
+    "query": "IELTS 6.5 xét tuyển 2025",
+    "dense": {
+      "label": "DENSE",
+      "query": "IELTS 6.5 xét tuyển 2025",
+      "top1_score": 0.5460840463638306,
+      "top1_id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+      "results": [
+        {
+          "id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+          "score": 0.5460840463638306,
+          "method": "dense",
+          "title": "Quy định chứng chỉ ngoại ngữ và tin học — Tóm tắt"
+        },
+        {
+          "id": "news/article_02.md::chunk-18",
+          "score": 0.5216832160949707,
+          "method": "dense",
+          "title": "Trường ĐH công lập xét tuyển bổ sung 9 ngành từ mức 15 điểm"
+        },
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-2",
+          "score": 0.5101551413536072,
+          "method": "dense",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        },
+        {
+          "id": "news/article_03.md::chunk-1",
+          "score": 0.505699872970581,
+          "method": "dense",
+          "title": "Bỏ cộng điểm IELTS nhưng không nên “xóa sổ” học sinh giỏi khi xét tuyển đại học"
+        },
+        {
+          "id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "score": 0.5048388242721558,
+          "method": "dense",
+          "title": "Quy chế tuyển sinh đại học 2025 — Tóm tắt"
+        }
+      ]
+    },
+    "bm25": {
+      "label": "BM25",
+      "query": "IELTS 6.5 xét tuyển 2025",
+      "top1_score": 25.42384818286724,
+      "top1_id": "news/article_04.md::chunk-0",
+      "results": [
+        {
+          "id": "news/article_04.md::chunk-0",
+          "score": 25.42384818286724,
+          "method": "bm25",
+          "title": "Bỏ cộng điểm IELTS trong xét tuyển đại học: Làm ngay hay cần lộ trình?"
+        },
+        {
+          "id": "news/article_03.md::chunk-1",
+          "score": 24.750559812461415,
+          "method": "bm25",
+          "title": "Bỏ cộng điểm IELTS nhưng không nên “xóa sổ” học sinh giỏi khi xét tuyển đại học"
+        },
+        {
+          "id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+          "score": 24.748810984282123,
+          "method": "bm25",
+          "title": "Quy định chứng chỉ ngoại ngữ và tin học — Tóm tắt"
+        },
+        {
+          "id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "score": 24.584708140003432,
+          "method": "bm25",
+          "title": "Quy chế thi tốt nghiệp THPT 2025 — Tóm tắt"
+        },
+        {
+          "id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "score": 23.757717826287408,
+          "method": "bm25",
+          "title": "Quy chế tuyển sinh đại học 2025 — Tóm tắt"
+        }
+      ]
+    },
+    "pipeline": {
+      "label": "HYBRID (Task9 pipeline, threshold=0.5)",
+      "query": "IELTS 6.5 xét tuyển 2025",
+      "top1_score": 0.032266458495966696,
+      "top1_id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+      "results": [
+        {
+          "id": "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1",
+          "score": 0.032266458495966696,
+          "method": "hybrid",
+          "title": "Quy định chứng chỉ ngoại ngữ và tin học — Tóm tắt"
+        },
+        {
+          "id": "news/article_03.md::chunk-1",
+          "score": 0.031754032258064516,
+          "method": "hybrid",
+          "title": "Bỏ cộng điểm IELTS nhưng không nên “xóa sổ” học sinh giỏi khi xét tuyển đại học"
+        },
+        {
+          "id": "news/article_02.md::chunk-18",
+          "score": 0.030834914611005692,
+          "method": "hybrid",
+          "title": "Trường ĐH công lập xét tuyển bổ sung 9 ngành từ mức 15 điểm"
+        },
+        {
+          "id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "score": 0.03076923076923077,
+          "method": "hybrid",
+          "title": "Quy chế tuyển sinh đại học 2025 — Tóm tắt"
+        },
+        {
+          "id": "news/article_04.md::chunk-0",
+          "score": 0.030679156908665108,
+          "method": "hybrid",
+          "title": "Bỏ cộng điểm IELTS trong xét tuyển đại học: Làm ngay hay cần lộ trình?"
+        }
+      ]
+    }
+  },
+  {
+    "label": "Multi-document",
+    "query": "Những phương thức xét tuyển đại học hiện nay là gì?",
+    "dense": {
+      "label": "DENSE",
+      "query": "Những phương thức xét tuyển đại học hiện nay là gì?",
+      "top1_score": 0.6033022403717041,
+      "top1_id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+      "results": [
+        {
+          "id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "score": 0.6033022403717041,
+          "method": "dense",
+          "title": "Quy chế tuyển sinh đại học 2025 — Tóm tắt"
+        },
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-1",
+          "score": 0.6022626161575317,
+          "method": "dense",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        },
+        {
+          "id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+          "score": 0.5964580774307251,
+          "method": "dense",
+          "title": "Quy chế tuyển sinh đại học 2025 — Tóm tắt"
+        },
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+          "score": 0.5914019346237183,
+          "method": "dense",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        },
+        {
+          "id": "news/article_05.md::chunk-1",
+          "score": 0.5792515277862549,
+          "method": "dense",
+          "title": "Siết xét tuyển ĐH: Căng sức khi nhiều phương thức, rút còn 1 lại khó thí sinh"
+        }
+      ]
+    },
+    "bm25": {
+      "label": "BM25",
+      "query": "Những phương thức xét tuyển đại học hiện nay là gì?",
+      "top1_score": 53.64300630855404,
+      "top1_id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+      "results": [
+        {
+          "id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+          "score": 53.64300630855404,
+          "method": "bm25",
+          "title": "Quy chế tuyển sinh đại học 2025 — Tóm tắt"
+        },
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+          "score": 51.33246608304286,
+          "method": "bm25",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        },
+        {
+          "id": "news/article_02.md::chunk-22",
+          "score": 50.44722209530338,
+          "method": "bm25",
+          "title": "Trường ĐH công lập xét tuyển bổ sung 9 ngành từ mức 15 điểm"
+        },
+        {
+          "id": "news/article_06.md::chunk-1",
+          "score": 49.82140279936576,
+          "method": "bm25",
+          "title": "Điểm chuẩn cao hơn thủ khoa toàn quốc và câu chuyện một phương thức xét tuyển"
+        },
+        {
+          "id": "news/article_05.md::chunk-1",
+          "score": 49.69039291308147,
+          "method": "bm25",
+          "title": "Siết xét tuyển ĐH: Căng sức khi nhiều phương thức, rút còn 1 lại khó thí sinh"
+        }
+      ]
+    },
+    "pipeline": {
+      "label": "HYBRID (Task9 pipeline, threshold=0.5)",
+      "query": "Những phương thức xét tuyển đại học hiện nay là gì?",
+      "top1_score": 0.032266458495966696,
+      "top1_id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+      "results": [
+        {
+          "id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1",
+          "score": 0.032266458495966696,
+          "method": "hybrid",
+          "title": "Quy chế tuyển sinh đại học 2025 — Tóm tắt"
+        },
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-0",
+          "score": 0.031754032258064516,
+          "method": "hybrid",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        },
+        {
+          "id": "news/article_05.md::chunk-1",
+          "score": 0.03076923076923077,
+          "method": "hybrid",
+          "title": "Siết xét tuyển ĐH: Căng sức khi nhiều phương thức, rút còn 1 lại khó thí sinh"
+        },
+        {
+          "id": "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3",
+          "score": 0.01639344262295082,
+          "method": "hybrid",
+          "title": "Quy chế tuyển sinh đại học 2025 — Tóm tắt"
+        },
+        {
+          "id": "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-1",
+          "score": 0.016129032258064516,
+          "method": "hybrid",
+          "title": "Quy định điều kiện xét tuyển đại học — Tóm tắt"
+        }
+      ]
+    }
+  },
+  {
+    "label": "OOD",
+    "query": "Giá Bitcoin hôm nay là bao nhiêu?",
+    "dense": {
+      "label": "DENSE",
+      "query": "Giá Bitcoin hôm nay là bao nhiêu?",
+      "top1_score": 0.47364580631256104,
+      "top1_id": "news/article_07.md::chunk-2",
+      "results": [
+        {
+          "id": "news/article_07.md::chunk-2",
+          "score": 0.47364580631256104,
+          "method": "dense",
+          "title": "Bỏ ưu tiên xét tuyển, nhiều nhóm học sinh giỏi quốc gia \"mất quyền lợi\" | Báo Dân trí"
+        },
+        {
+          "id": "news/article_08.md::chunk-1",
+          "score": 0.4678216576576233,
+          "method": "dense",
+          "title": "Điểm toán \"hủy diệt\" giấc mơ đại học: Đề khó hay học lệch? | Báo Dân trí"
+        },
+        {
+          "id": "news/article_01.md::chunk-1",
+          "score": 0.44925975799560547,
+          "method": "dense",
+          "title": "Cơ hội học tập đại học Mỹ: Không chỉ có một đường đi"
+        },
+        {
+          "id": "news/article_02.md::chunk-1",
+          "score": 0.44925975799560547,
+          "method": "dense",
+          "title": "Trường ĐH công lập xét tuyển bổ sung 9 ngành từ mức 15 điểm"
+        },
+        {
+          "id": "news/article_07.md::chunk-7",
+          "score": 0.44580501317977905,
+          "method": "dense",
+          "title": "Bỏ ưu tiên xét tuyển, nhiều nhóm học sinh giỏi quốc gia \"mất quyền lợi\" | Báo Dân trí"
+        }
+      ]
+    },
+    "bm25": {
+      "label": "BM25",
+      "query": "Giá Bitcoin hôm nay là bao nhiêu?",
+      "top1_score": 30.63209492115228,
+      "top1_id": "news/article_01.md::chunk-20",
+      "results": [
+        {
+          "id": "news/article_01.md::chunk-20",
+          "score": 30.63209492115228,
+          "method": "bm25",
+          "title": "Cơ hội học tập đại học Mỹ: Không chỉ có một đường đi"
+        },
+        {
+          "id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "score": 29.254471765295975,
+          "method": "bm25",
+          "title": "Quy chế thi tốt nghiệp THPT 2025 — Tóm tắt"
+        },
+        {
+          "id": "news/article_05.md::chunk-21",
+          "score": 27.093386402068337,
+          "method": "bm25",
+          "title": "Siết xét tuyển ĐH: Căng sức khi nhiều phương thức, rút còn 1 lại khó thí sinh"
+        },
+        {
+          "id": "news/article_04.md::chunk-20",
+          "score": 27.093386402068337,
+          "method": "bm25",
+          "title": "Bỏ cộng điểm IELTS trong xét tuyển đại học: Làm ngay hay cần lộ trình?"
+        },
+        {
+          "id": "news/article_06.md::chunk-21",
+          "score": 27.093386402068337,
+          "method": "bm25",
+          "title": "Điểm chuẩn cao hơn thủ khoa toàn quốc và câu chuyện một phương thức xét tuyển"
+        }
+      ]
+    },
+    "pipeline": {
+      "label": "HYBRID (Task9 pipeline, threshold=0.5)",
+      "query": "Giá Bitcoin hôm nay là bao nhiêu?",
+      "top1_score": 0.01639344262295082,
+      "top1_id": "news/article_07.md::chunk-2",
+      "results": [
+        {
+          "id": "news/article_07.md::chunk-2",
+          "score": 0.01639344262295082,
+          "method": "hybrid",
+          "title": "Bỏ ưu tiên xét tuyển, nhiều nhóm học sinh giỏi quốc gia \"mất quyền lợi\" | Báo Dân trí"
+        },
+        {
+          "id": "news/article_01.md::chunk-20",
+          "score": 0.01639344262295082,
+          "method": "hybrid",
+          "title": "Cơ hội học tập đại học Mỹ: Không chỉ có một đường đi"
+        },
+        {
+          "id": "news/article_08.md::chunk-1",
+          "score": 0.016129032258064516,
+          "method": "hybrid",
+          "title": "Điểm toán \"hủy diệt\" giấc mơ đại học: Đề khó hay học lệch? | Báo Dân trí"
+        },
+        {
+          "id": "legal/quy_che_thi_tot_nghiep_thpt_2025.md::chunk-1",
+          "score": 0.016129032258064516,
+          "method": "hybrid",
+          "title": "Quy chế thi tốt nghiệp THPT 2025 — Tóm tắt"
+        },
+        {
+          "id": "news/article_01.md::chunk-1",
+          "score": 0.015873015873015872,
+          "method": "hybrid",
+          "title": "Cơ hội học tập đại học Mỹ: Không chỉ có một đường đi"
+        }
+      ]
+    }
+  }
+]

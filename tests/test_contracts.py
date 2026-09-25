@@ -3,6 +3,7 @@ import inspect
 import pytest
 
 from src.contracts import (
+    assert_extended_score_fields,
     validate_document,
     validate_generation_result,
     validate_search_results,
@@ -159,7 +160,12 @@ def test_lexical_search_returns_bm25_contract(monkeypatch):
             "metadata": metadata(source="library.md", chunk_index=1),
         },
     ]
+    # Use direct monkeypatching on both CORPUS and _BM25 so the cached
+    # BM25 index is invalidated. If a previous test loaded the real
+    # Vietnamese corpus, _BM25 stays bound to it and direct patching of
+    # CORPUS alone is not enough to force re-indexing.
     monkeypatch.setattr(lexical, "CORPUS", corpus)
+    monkeypatch.setattr(lexical, "_BM25", None)
     output = lexical.lexical_search("tuition fee", top_k=2)
     validate_search_results(output, top_k=2, expected_method="bm25")
     assert output[0]["id"] == "chunk-0"
@@ -263,5 +269,108 @@ def test_generation_result_validator_accepts_safe_refusal():
             "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
             "sources": [],
             "retrieval_source": "none",
+        }
+    )
+
+
+# ---------------------------------------------------------------------------
+# Extension: optional dense/bm25/rrf_score fields (evidence-quality work)
+# ---------------------------------------------------------------------------
+
+
+def test_assert_extended_score_fields_accepts_absent_fields():
+    """Optional fields may be absent — backward-compatible."""
+    items = [
+        {
+            "id": "chunk-0",
+            "content": "x",
+            "score": 0.5,
+            "metadata": metadata(chunk_index=0),
+            "retrieval_method": "dense",
+        },
+    ]
+    # Must not raise when optional fields are absent.
+    assert_extended_score_fields(items)
+
+
+def test_assert_extended_score_fields_accepts_present_finite_numbers():
+    items = [
+        {
+            "id": "chunk-0",
+            "content": "x",
+            "score": 0.5,
+            "metadata": metadata(chunk_index=0),
+            "retrieval_method": "hybrid",
+            "dense_score": 0.71,
+            "bm25_score": 12.3,
+            "rrf_score": 0.032,
+        },
+    ]
+    assert_extended_score_fields(items)
+
+
+def test_assert_extended_score_fields_rejects_non_numeric_value():
+    items = [
+        {
+            "id": "chunk-0",
+            "content": "x",
+            "score": 0.5,
+            "metadata": metadata(chunk_index=0),
+            "retrieval_method": "hybrid",
+            "dense_score": "0.71",  # wrong type
+        },
+    ]
+    with pytest.raises(ValueError, match="dense_score"):
+        assert_extended_score_fields(items)
+
+
+def test_assert_extended_score_fields_rejects_nan():
+    items = [
+        {
+            "id": "chunk-0",
+            "content": "x",
+            "score": 0.5,
+            "metadata": metadata(chunk_index=0),
+            "retrieval_method": "hybrid",
+            "rrf_score": float("nan"),
+        },
+    ]
+    with pytest.raises(ValueError, match="rrf_score"):
+        assert_extended_score_fields(items)
+
+
+def test_assert_extended_score_fields_accepts_none():
+    items = [
+        {
+            "id": "chunk-0",
+            "content": "x",
+            "score": 0.5,
+            "metadata": metadata(chunk_index=0),
+            "retrieval_method": "hybrid",
+            "dense_score": None,
+            "bm25_score": None,
+            "rrf_score": None,
+        },
+    ]
+    assert_extended_score_fields(items)
+
+
+def test_generation_result_validator_accepts_evidence_payload():
+    """GenerationResult may carry optional evidence/intent/diagnostics."""
+    validate_generation_result(
+        {
+            "answer": "Theo [1], tốt nghiệp THPT.",
+            "sources": [result("chunk-0", 0.7)],
+            "retrieval_source": "hybrid",
+            "evidence": {
+                "status": "sufficient",
+                "relevance_label": "High",
+                "suggested_action": "answer",
+            },
+            "intent": {
+                "education_level": "high_school",
+                "domain": "university_admission",
+                "intent": "requirement",
+            },
         }
     )
