@@ -27,12 +27,6 @@ python -m playwright install chromium
 cp .env.example .env
 ```
 
-<<<<<<< Updated upstream
-Điền API key cần dùng trong `.env`; không commit file này.
-
-```bash
-# 1. Thu thập và chuẩn hoá
-=======
 Python bắt buộc: `>=3.10,<3.14`. Đã kiểm thử với **Python 3.11.9**.
 
 ## 7. `.env` Configuration
@@ -303,7 +297,6 @@ py -3.12 -m venv .venv
 python -m pip install -e ".[dev]"
 python -m playwright install chromium
 copy .env.example .env
->>>>>>> Stashed changes
 python -m src.task1_collect_legal_docs
 python -m src.task2_crawl_news
 python -m src.task3_convert_markdown
@@ -318,45 +311,6 @@ streamlit run app.py
 
 ## Lộ trình 3 giờ
 
-<<<<<<< Updated upstream
-| Mốc                  | Thời gian | Kết quả cần có                           |
-| -------------------- | --------: | ---------------------------------------- |
-| 0. Setup             |   10 phút | Môi trường và `.env` sẵn sàng            |
-| 1. Data              |   25 phút | ≥3 legal, ≥5 news, Markdown đã chuẩn hoá |
-| 2. Index & search    |   30 phút | ChromaDB, dense search và BM25 chạy được |
-| 3. Fusion & fallback |   25 phút | RRF và fallback tuân thủ contract        |
-| 4. Generation & UI   |   30 phút | Chatbot trả lời có citation              |
-| 5. Evaluation        |   30 phút | 15+ Q&A, 4 metric, A/B comparison        |
-| 6. Demo & handoff    |   30 phút | Test, report, demo và push repository    |
-
-## Lưu ý quy tắc để có code quality tốt:
-
-- Dense và BM25 nên cùng trả về `SearchResult` theo một schema.
-- RRF chỉ nên dùng để gộp thứ hạng và chỉ chạy một lần.
-- Fallback dùng cosine score gốc của dense retrieval.
-- Threshold phải được hiệu chỉnh trên query in domain và out of domain, không có một con số đúng cho mọi corpus.
-
-## Tài liệu
-
-- [Module contracts](docs/MODULE_CONTRACTS.md): schema, interface và invariant mà code/test nên tuân theo.
-- [Step-by-step guide](docs/STEP_BY_STEP.md): thứ tự triển khai và tiêu chí hoàn thành từng bước.
-- [Grading rubric](docs/GRADING_RUBRIC.md): Rubric thang điểm.
-- [Individual report](group_project/ịndividual/INDIVIDUAL_REPORT.md): template báo cáo cá nhân.
-- [Suggested topics](docs/SUGGESTED_TOPICS.md): danh sách chủ đề tham khảo, không bắt buộc.
-
-## Kiểm tra
-
-```bash
-# Contract tests
-pytest tests/test_contracts.py -q
-
-# Acceptance tests
-pytest tests/test_acceptance.py -q
-
-# Toàn bộ
-pytest -q
-```
-=======
 * **Tests**: `pytest -q` → **109/109 pass** (15 contract + 5 acceptance + 52 unit bonus + 20 integration + 7 real-pipeline e2e + 6 Groq + 4 env-parsing).
 * **Streamlit**: HTTP 200 trên `http://127.0.0.1:8765/` (UI tích hợp Bonus 1, 2,
   5, 6, 7, 9, 10).
@@ -403,4 +357,3 @@ Retrieval evaluation (`group_project/evaluation/retrieval_evaluation.json`):
 - Hybrid RRF: CP=0.540, CR=0.875, source_hit=0.95 (in-domain). Honest verdict: dense wins slightly on this corpus; BM25 adds noise.
 
 Báo cáo đầy đủ: `reports/REAL_PIPELINE_VERIFICATION.md` (corpus size, every stage verified, known limitations).
->>>>>>> Stashed changes

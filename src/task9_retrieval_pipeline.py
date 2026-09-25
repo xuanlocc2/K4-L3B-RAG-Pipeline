@@ -11,8 +11,6 @@ Luồng xử lý:
 Không so sánh threshold với RRF score vì hai thang đo khác nhau.
 """
 
-<<<<<<< Updated upstream
-=======
 from __future__ import annotations
 
 import os
@@ -20,7 +18,6 @@ from typing import Any
 
 from dotenv import load_dotenv
 
->>>>>>> Stashed changes
 from .task5_semantic_search import semantic_search
 from .task6_lexical_search import lexical_search
 from .task7_reranking import rerank_rrf
@@ -34,9 +31,6 @@ from .evidence_quality import (
 )
 
 
-<<<<<<< Updated upstream
-SCORE_THRESHOLD = 0.3
-=======
 load_dotenv()
 
 # Threshold được hiệu chỉnh trên tập validation (xem reports/threshold_calibration.md).
@@ -49,12 +43,9 @@ try:
     DEFAULT_SCORE_THRESHOLD = float(_env_threshold) if _env_threshold.strip() else 0.50
 except (TypeError, ValueError):
     DEFAULT_SCORE_THRESHOLD = 0.50
->>>>>>> Stashed changes
 DEFAULT_TOP_K = 5
 DEFAULT_MAX_CITATIONS = 3  # 1–3 final supporting sources per audit §8.
 
-<<<<<<< Updated upstream
-=======
 # Bonus 1: trọng số mặc định cho Weighted RRF.
 # Lấy từ env để dễ cấu hình mà không cần sửa code.
 # Grid search trên golden_dataset (xem scripts/weighted_rrf_grid.py) cho
@@ -86,7 +77,6 @@ VALID_RETRIEVAL_MODES = {
     "rrf_dedup",
 }
 
->>>>>>> Stashed changes
 
 def retrieve(
     query: str,

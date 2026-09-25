@@ -28,8 +28,6 @@ EMBEDDING_DIM = 1024
 COLLECTION_NAME = "rag_documents"
 
 
-<<<<<<< Updated upstream
-=======
 # --- Load & chunk -----------------------------------------------------------
 
 
@@ -143,7 +141,6 @@ def _get_model() -> SentenceTransformer:
     return _MODEL
 
 
->>>>>>> Stashed changes
 def embed_texts(texts: list[str]) -> list[list[float]]:
     # TODO: Dispatch theo EMBEDDING_PROVIDER trong .env.
     #

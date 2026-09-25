@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-import streamlit as st
-from dotenv import load_dotenv
-=======
 """Streamlit RAG Chatbot — Tuyển sinh Đại học Việt Nam.
 
 Giao diện chat với:
@@ -50,7 +46,6 @@ from src.ui_components import (  # noqa: E402
     render_rejected_candidates_panel,
     render_state_banner,
 )
->>>>>>> Stashed changes
 
 
 load_dotenv()
@@ -75,9 +70,6 @@ st.caption("Thay tiêu đề và hướng dẫn sử dụng")
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
-<<<<<<< Updated upstream
-        # TODO: Hiển thị sources và retrieval score.
-=======
         if message["role"] == "assistant":
             # Citation panel is ONLY shown for grounded answers (audit §13).
             # For refuse / clarify / out-of_domain there must be no citations
@@ -102,7 +94,6 @@ for message in st.session_state.messages:
                 if message.get("debug_html"):
                     with st.expander("🔍 Debug", expanded=False):
                         st.markdown(message["debug_html"], unsafe_allow_html=True)
->>>>>>> Stashed changes
 
 query = st.chat_input("Nhập câu hỏi...")
 
@@ -113,16 +104,6 @@ if query:
         st.markdown(query)
 
     with st.chat_message("assistant"):
-<<<<<<< Updated upstream
-        # TODO: Gọi generate_with_citation(query, top_k).
-        answer = "TODO: Itegration RAG Pipeline hêre"
-        sources = []
-        st.markdown(answer)
-
-        # TODO: Hiển thị sources và citation.
-
-    # TODO: Lưu answer và sources vào session state.
-=======
         with st.spinner("Đang truy xuất và sinh câu trả lời..."):
             settings = st.session_state.settings
             history = st.session_state.messages[:-1]
@@ -260,4 +241,3 @@ if query:
                 )
             except Exception as exc:
                 st.error(f"Lỗi khi sinh câu trả lời: {exc}")
->>>>>>> Stashed changes

@@ -9,9 +9,6 @@ liệu và tên riêng. Output phải theo SearchResult và sort score giảm d�
 CORPUS: list[dict] = []
 
 
-<<<<<<< Updated upstream
-def build_bm25_index(corpus: list[dict]):
-=======
 def _tokenize(text: str) -> list[str]:
     # tách theo ký tự chữ/số để giữ nguyên tiếng Việt có dấu.
     return [token.lower() for token in _TOKEN_RE.findall(text or "")]
@@ -50,7 +47,6 @@ def _ensure_corpus() -> None:
 
 
 def build_bm25_index(corpus: list[dict]) -> BM25Plus:
->>>>>>> Stashed changes
     """Tạo BM25 index từ cùng corpus chunks của Task 4."""
     # TODO: Tokenize và tạo BM25 index.
     #
@@ -62,28 +58,6 @@ def build_bm25_index(corpus: list[dict]) -> BM25Plus:
 
 def lexical_search(query: str, top_k: int = 10) -> list[dict]:
     """Trả về BM25 SearchResult theo score giảm dần."""
-<<<<<<< Updated upstream
-    # TODO: Tính BM25 scores và map lại corpus.
-    #
-    # import numpy as np
-    # bm25 = build_bm25_index(CORPUS)
-    # scores = bm25.get_scores(query.lower().split())
-    # indices = np.argsort(scores)[::-1][:top_k]
-    # results = []
-    # for index in indices:
-    #     if scores[index] <= 0:
-    #         continue
-    #     item = CORPUS[index]
-    #     results.append({
-    #         "id": item["id"],
-    #         "content": item["content"],
-    #         "score": float(scores[index]),
-    #         "metadata": item["metadata"],
-    #         "retrieval_method": "bm25",
-    #     })
-    # return results
-    raise NotImplementedError("Implement lexical_search")
-=======
     if not query.strip():
         return []
     _ensure_corpus()
@@ -122,7 +96,6 @@ def lexical_search(query: str, top_k: int = 10) -> list[dict]:
         if len(results) >= top_k:
             break
     return results
->>>>>>> Stashed changes
 
 
 if __name__ == "__main__":

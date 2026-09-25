@@ -15,9 +15,6 @@ import os
 
 from dotenv import load_dotenv
 
-<<<<<<< Updated upstream
-from .task9_retrieval_pipeline import retrieve
-=======
 from .bonus3_query_expansion import expand_query
 from .bonus5_conversation_memory import rewrite_followup
 from .bonus7_citation_grounding import (
@@ -30,7 +27,6 @@ from .evidence_quality import (
     make_weak_evidence_message,
 )
 from .task9_retrieval_pipeline import retrieve_with_evidence
->>>>>>> Stashed changes
 
 
 load_dotenv()
@@ -74,40 +70,6 @@ def format_context(chunks: list[dict]) -> str:
 
 
 def call_llm(system_prompt: str, user_message: str) -> str:
-<<<<<<< Updated upstream
-    """Gọi OpenAI, Gemini hoặc Anthropic theo cấu hình."""
-    # TODO: Dispatch theo LLM_PROVIDER.
-    #
-    # - openai    -> OPENAI_API_KEY
-    # - gemini    -> GEMINI_API_KEY
-    # - anthropic -> ANTHROPIC_API_KEY
-    #
-    # Dùng LLM_MODEL và trả về text thuần cho cả ba nhánh.
-    raise NotImplementedError("Implement call_llm")
-
-
-def generate_with_citation(query: str, top_k: int = TOP_K) -> dict:
-    """Trả về GenerationResult."""
-    # TODO: Implement end-to-end generation.
-    #
-    # chunks = retrieve(query, top_k=top_k)
-    # if not chunks:
-    #     return {
-    #         "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
-    #         "sources": [],
-    #         "retrieval_source": "none",
-    #     }
-    # reordered = reorder_for_llm(chunks)
-    # context = format_context(reordered)
-    # user_message = f"Context:\n{context}\n\nQuestion: {query}"
-    # answer = call_llm(SYSTEM_PROMPT, user_message)
-    # return {
-    #     "answer": answer,
-    #     "sources": chunks,
-    #     "retrieval_source": chunks[0]["retrieval_method"],
-    # }
-    raise NotImplementedError("Implement generate_with_citation")
-=======
     """Gọi OpenAI, Groq, Gemini hoặc Anthropic theo cấu hình.
 
     Supported providers:
@@ -433,7 +395,6 @@ def generate_with_citation(
         "action": "answer",
         "answerability_state": "evidence_sufficient",
     }
->>>>>>> Stashed changes
 
 
 if __name__ == "__main__":
