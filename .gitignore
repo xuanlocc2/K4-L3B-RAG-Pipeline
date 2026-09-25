@@ -55,3 +55,6 @@ pageindex_pdfs/
 # OS
 .DS_Store
 Thumbs.db
+
+#taste-skill
+.agents/
