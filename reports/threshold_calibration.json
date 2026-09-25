@@ -1,0 +1,103 @@
+{
+  "in_domain_scores": [
+    [
+      "điều kiện xét tuyển đại học",
+      0.7026834487915039
+    ],
+    [
+      "các phương thức xét tuyển",
+      0.6557008624076843
+    ],
+    [
+      "tổ hợp môn xét tuyển",
+      0.6602129936218262
+    ],
+    [
+      "điểm ưu tiên khu vực",
+      0.5651366114616394
+    ],
+    [
+      "các bài thi tốt nghiệp THPT",
+      0.6384003162384033
+    ],
+    [
+      "chứng chỉ IELTS xét tuyển",
+      0.6682530045509338
+    ],
+    [
+      "thông tư 08/2022",
+      0.6608922481536865
+    ],
+    [
+      "hồ sơ dự tuyển đại học",
+      0.6328964829444885
+    ],
+    [
+      "tuyển sinh bổ sung 2026",
+      0.6164394617080688
+    ],
+    [
+      "đại học Mỹ cho sinh viên Việt",
+      0.6410768628120422
+    ]
+  ],
+  "ood_scores": [
+    [
+      "công thức nấu phở bò",
+      0.36778122186660767
+    ],
+    [
+      "giá vàng hôm nay",
+      0.4605400562286377
+    ],
+    [
+      "thủ tục đăng ký kết hôn",
+      0.4943472146987915
+    ],
+    [
+      "lịch thi đấu World Cup",
+      0.4368363618850708
+    ],
+    [
+      "cách trồng cây cảnh",
+      0.42085492610931396
+    ]
+  ],
+  "candidate_summary": [
+    {
+      "threshold": 0.2,
+      "in_domain_below": 0,
+      "ood_at_or_above": 5
+    },
+    {
+      "threshold": 0.25,
+      "in_domain_below": 0,
+      "ood_at_or_above": 5
+    },
+    {
+      "threshold": 0.3,
+      "in_domain_below": 0,
+      "ood_at_or_above": 5
+    },
+    {
+      "threshold": 0.35,
+      "in_domain_below": 0,
+      "ood_at_or_above": 5
+    },
+    {
+      "threshold": 0.4,
+      "in_domain_below": 0,
+      "ood_at_or_above": 4
+    },
+    {
+      "threshold": 0.45,
+      "in_domain_below": 0,
+      "ood_at_or_above": 2
+    }
+  ],
+  "recommended_threshold": 0.45,
+  "in_domain_min": 0.5651366114616394,
+  "ood_max": 0.4943472146987915,
+  "in_domain_mean": 0.6441692292690278,
+  "ood_mean": 0.43607195615768435
+}

@@ -1,0 +1,205 @@
+"""Build the golden dataset for evaluation.
+
+Reads the standardized corpus and produces a JSON list of grounded Q&A
+cases. The questions are designed to cover the categories required by
+`docs/TOPIC_SELECTION.md` and are answerable from the corpus we collected.
+"""
+from __future__ import annotations
+
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).parent.parent
+OUT_PATH = ROOT / "group_project" / "evaluation" / "golden_dataset.json"
+
+
+CASES: list[dict] = [
+    {
+        "id": "Q01",
+        "question": "Điều kiện dự tuyển đại học gồm những yêu cầu nào?",
+        "expected_answer": "Đã tốt nghiệp THPT (chính quy hoặc thường xuyên) hoặc văn bằng tương đương được Bộ GD&ĐT công nhận; đủ sức khỏe để học tập; nộp hồ sơ đầy đủ và đúng hạn.",
+        "expected_context": "legal/quy_che_tuyen_sinh_dh_2025.md,legal/thong_tu_dieu_kien_xet_tuyen.md",
+        "category": "factual",
+        "difficulty": "easy",
+    },
+    {
+        "id": "Q02",
+        "question": "Các phương thức xét tuyển phổ biến hiện nay là gì?",
+        "expected_answer": "Xét tuyển thẳng, xét điểm thi tốt nghiệp THPT, xét học bạ THPT, xét tuyển kết hợp chứng chỉ quốc tế và xét tuyển theo đề án riêng của trường.",
+        "expected_context": "legal/quy_che_tuyen_sinh_dh_2025.md,legal/thong_tu_08_2022_tuyen_sinh.md",
+        "category": "factual",
+        "difficulty": "easy",
+    },
+    {
+        "id": "Q03",
+        "question": "Mỗi thí sinh được đăng ký tối đa bao nhiêu nguyện vọng xét tuyển đại học?",
+        "expected_answer": "Thông thường không giới hạn số nguyện vọng; thí sinh xếp theo thứ tự ưu tiên để hệ thống xét tuyển.",
+        "expected_context": "legal/quy_che_tuyen_sinh_dh_2025.md",
+        "category": "lexical",
+        "difficulty": "easy",
+    },
+    {
+        "id": "Q04",
+        "question": "Điểm ưu tiên khu vực được cộng tối đa bao nhiêu?",
+        "expected_answer": "KV1 cộng tối đa 1.5 điểm, KV2-NT 1.0 điểm, KV3 0.5 điểm, các khu vực còn lại không được cộng.",
+        "expected_context": "legal/quy_che_tuyen_sinh_dh_2025.md",
+        "category": "lexical",
+        "difficulty": "medium",
+    },
+    {
+        "id": "Q05",
+        "question": "Trường hợp nhiều thí sinh bằng điểm ở ngưỡng chỉ tiêu cuối thì xét thế nào?",
+        "expected_answer": "Áp dụng tiêu chí phụ theo quy định của trường, ví dụ điểm môn chính hoặc thứ tự nguyện vọng.",
+        "expected_context": "legal/quy_che_tuyen_sinh_dh_2025.md",
+        "category": "factual",
+        "difficulty": "medium",
+    },
+    {
+        "id": "Q06",
+        "question": "Các bài thi tốt nghiệp THPT 2025 gồm những môn nào?",
+        "expected_answer": "Toán, Ngữ văn, Ngoại ngữ là ba bài thi bắt buộc; thí sinh tự chọn một tổ hợp (KHTN gồm Lý-Hóa-Sinh hoặc KHXH gồm Sử-Địa-GDCD) hoặc các bài riêng lẻ.",
+        "expected_context": "legal/quy_che_thi_tot_nghiep_thpt_2025.md",
+        "category": "factual",
+        "difficulty": "medium",
+    },
+    {
+        "id": "Q07",
+        "question": "Hình thức thi các môn trong kỳ thi tốt nghiệp THPT là gì?",
+        "expected_answer": "Toán và Ngoại ngữ thi trắc nghiệm; Ngữ văn thi tự luận; các bài thi tổ hợp thi trắc nghiệm.",
+        "expected_context": "legal/quy_che_thi_tot_nghiep_thpt_2025.md",
+        "category": "factual",
+        "difficulty": "medium",
+    },
+    {
+        "id": "Q08",
+        "question": "IELTS có được dùng để xét tuyển đại học không?",
+        "expected_answer": "Có, nhiều trường sử dụng IELTS cùng các chứng chỉ quốc tế khác để xét tuyển hoặc quy đổi điểm, theo quy định riêng của từng trường.",
+        "expected_context": "legal/quy_che_ngoai_ngu_dau_vao.md,news/article_03.md,news/article_04.md",
+        "category": "multi-document",
+        "difficulty": "medium",
+    },
+    {
+        "id": "Q09",
+        "question": "Thông tư 08/2022/TT-BGDĐT có phạm vi áp dụng ra sao?",
+        "expected_answer": "Áp dụng cho các cơ sở đào tạo đại học (công lập và tư thục) và các trường cao đẳng đào tạo ngành Giáo dục Mầm non.",
+        "expected_context": "legal/thong_tu_08_2022_tuyen_sinh.md",
+        "category": "factual",
+        "difficulty": "medium",
+    },
+    {
+        "id": "Q10",
+        "question": "Có chính sách nào cho học sinh giỏi quốc gia khi xét tuyển?",
+        "expected_answer": "Theo quy chế, học sinh đạt giải quốc gia, quốc tế được xét tuyển thẳng; tuy nhiên một số ý kiến cho rằng cần giữ cơ chế ưu tiên phù hợp khi chính sách thay đổi.",
+        "expected_context": "legal/quy_che_tuyen_sinh_dh_2025.md,news/article_06.md",
+        "category": "multi-document",
+        "difficulty": "medium",
+    },
+    {
+        "id": "Q11",
+        "question": "Tổ hợp môn xét tuyển A00 gồm những môn nào?",
+        "expected_answer": "A00 gồm Toán, Lý, Hóa — đây là tổ hợp phổ biến cho các ngành kỹ thuật.",
+        "expected_context": "legal/thong_tu_dieu_kien_xet_tuyen.md",
+        "category": "lexical",
+        "difficulty": "easy",
+    },
+    {
+        "id": "Q12",
+        "question": "Đề thi Toán trong kỳ thi tốt nghiệp THPT hiện nay có đặc điểm gì?",
+        "expected_answer": "Đề thi Toán được đánh giá có tính phân hóa cao; nhiều thí sinh phản ánh đề khó và ảnh hưởng đến kết quả xét tuyển đại học.",
+        "expected_context": "legal/quy_che_thi_tot_nghiep_thpt_2025.md,news/article_07.md",
+        "category": "multi-document",
+        "difficulty": "medium",
+    },
+    {
+        "id": "Q13",
+        "question": "Việc bỏ cộng điểm IELTS có đồng thuận không?",
+        "expected_answer": "Chưa đồng thuận; nhóm ủng hộ cho rằng tạo công bằng, nhóm phản đối cho rằng bỏ đột ngột gây xáo trộn và cần lộ trình rõ ràng.",
+        "expected_context": "news/article_03.md,news/article_04.md",
+        "category": "comparison",
+        "difficulty": "medium",
+    },
+    {
+        "id": "Q14",
+        "question": "Khi nhiều phương thức xét tuyển bị rút, áp lực dồn về đâu?",
+        "expected_answer": "Áp lực đổ dồn vào kỳ thi tốt nghiệp THPT duy nhất, khiến nhiều thí sinh và phụ huynh lo ngại rủi ro.",
+        "expected_context": "news/article_05.md",
+        "category": "semantic_paraphrase",
+        "difficulty": "medium",
+    },
+    {
+        "id": "Q15",
+        "question": "Chứng chỉ VSTEP là gì?",
+        "expected_answer": "VSTEP là chứng chỉ ngoại ngữ do các trường đại học Việt Nam được Bộ GD&ĐT ủy quyền tổ chức, hiệu lực theo quy định của trường cấp.",
+        "expected_context": "legal/quy_che_ngoai_ngu_dau_vao.md",
+        "category": "lexical",
+        "difficulty": "medium",
+    },
+    {
+        "id": "Q16",
+        "question": "Hồ sơ dự tuyển đại học cần những giấy tờ gì?",
+        "expected_answer": "Phiếu đăng ký xét tuyển, bản sao giấy chứng nhận tốt nghiệp tạm thời hoặc bằng tốt nghiệp THPT, học bạ, giấy chứng nhận ưu tiên (nếu có) và phong bì có dán tem ghi địa chỉ.",
+        "expected_context": "legal/quy_che_tuyen_sinh_dh_2025.md",
+        "category": "factual",
+        "difficulty": "medium",
+    },
+    {
+        "id": "Q17",
+        "question": "Tuyển sinh bổ sung năm 2026 có thông tin gì đáng chú ý?",
+        "expected_answer": "Một số trường đại học công lập công bố xét tuyển bổ sung cho nhiều ngành với mức điểm sàn từ 15 điểm trở lên, tạo thêm cơ hội cho thí sinh trượt đợt 1.",
+        "expected_context": "news/article_02.md",
+        "category": "source-specific",
+        "difficulty": "easy",
+    },
+    {
+        "id": "Q18",
+        "question": "Tuyển sinh đại học Mỹ có những con đường nào cho học sinh Việt?",
+        "expected_answer": "Có nhiều lộ trình như 4+0 tại Việt Nam, 2+2 chuyển tiếp sang Mỹ, hoặc học chương trình của trường Mỹ đặt tại Việt Nam; bằng cấp vẫn do trường Mỹ cấp.",
+        "expected_context": "news/article_01.md",
+        "category": "semantic_paraphrase",
+        "difficulty": "easy",
+    },
+    {
+        "id": "Q19",
+        "question": "Tuyensinh247.com là cổng thông tin gì?",
+        "expected_answer": "Là cổng thông tin tuyển sinh phổ biến, tổng hợp tin tức, điểm chuẩn, ngành học, trường học cho học sinh THPT và phụ huynh.",
+        "expected_context": "news/article_08.md",
+        "category": "source-specific",
+        "difficulty": "easy",
+    },
+    {
+        "id": "Q20",
+        "question": "Thủ tục đăng ký kết hôn tại Việt Nam như thế nào?",
+        "expected_answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "expected_context": "(ngoài domain — không mong đợi truy xuất được)",
+        "category": "out_of_domain",
+        "difficulty": "n/a",
+    },
+    {
+        "id": "Q21",
+        "question": "Lãi suất ngân hàng Techcombank hiện tại là bao nhiêu?",
+        "expected_answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "expected_context": "(ngoài domain — không mong đợi truy xuất được)",
+        "category": "refusal",
+        "difficulty": "n/a",
+    },
+    {
+        "id": "Q22",
+        "question": "Tóm tắt Quy chế thi tốt nghiệp THPT 2025?",
+        "expected_answer": "Quy chế quy định mục đích, các bài thi (Toán, Ngữ văn, Ngoại ngữ bắt buộc; thí sinh chọn tổ hợp hoặc bài riêng), hình thức thi (trắc nghiệm/tự luận), điều kiện dự thi và cách tính điểm xét tốt nghiệp.",
+        "expected_context": "legal/quy_che_thi_tot_nghiep_thpt_2025.md",
+        "category": "semantic_paraphrase",
+        "difficulty": "medium",
+    },
+]
+
+
+def main() -> None:
+    OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    OUT_PATH.write_text(
+        json.dumps(CASES, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    print(f"Wrote {len(CASES)} cases to {OUT_PATH.relative_to(ROOT)}")
+
+
+if __name__ == "__main__":
+    main()
