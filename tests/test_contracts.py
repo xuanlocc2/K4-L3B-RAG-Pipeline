@@ -50,10 +50,22 @@ def test_public_function_signatures_are_stable():
     assert list(inspect.signature(lexical_search).parameters) == ["query", "top_k"]
     assert list(inspect.signature(rerank_rrf).parameters) == ["ranked_lists", "top_k", "k"]
     assert list(inspect.signature(pageindex_search).parameters) == ["query", "top_k"]
-    assert list(inspect.signature(retrieve).parameters) == [
-        "query", "top_k", "score_threshold", "use_reranking"
-    ]
-    assert list(inspect.signature(generate_with_citation).parameters) == ["query", "top_k"]
+    # Các tham số 4 đầu tiên của retrieve phải giữ đúng thứ tự + tên để giữ
+    # tương thích ngược. Các tham số mới (retrieval_mode, dense_weight, ...)
+    # được khai báo keyword-only nên người dùng cũ vẫn gọi được như cũ.
+    retrieve_params = list(inspect.signature(retrieve).parameters)
+    assert retrieve_params[:4] == ["query", "top_k", "score_threshold", "use_reranking"]
+    assert all(
+        p.kind is inspect.Parameter.KEYWORD_ONLY
+        for p in list(inspect.signature(retrieve).parameters.values())[4:]
+    )
+    assert list(inspect.signature(generate_with_citation).parameters)[:2] == ["query", "top_k"]
+    # Các tham số bonus (history, retrieval_mode, ...) thêm sau, đều là
+    # keyword-only để tương thích ngược với code gọi cũ ``generate(q, top_k)``.
+    assert all(
+        p.kind is inspect.Parameter.KEYWORD_ONLY
+        for p in list(inspect.signature(generate_with_citation).parameters.values())[2:]
+    )
 
 
 def test_document_validator_accepts_contract():

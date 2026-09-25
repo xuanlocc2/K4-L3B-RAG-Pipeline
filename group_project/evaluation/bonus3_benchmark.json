@@ -1,0 +1,50 @@
+{
+  "A_baseline": {
+    "n": 22,
+    "context_precision": 0.5,
+    "context_recall": 0.8409090909090909,
+    "source_hit_rate": 0.9090909090909091
+  },
+  "B_bigram_expansion": {
+    "n": 22,
+    "context_precision": 0.4454545454545454,
+    "context_recall": 0.8030303030303031,
+    "source_hit_rate": 0.8636363636363636
+  },
+  "C_hyde": {
+    "n": 22,
+    "context_precision": 0.4454545454545455,
+    "context_recall": 0.7803030303030304,
+    "source_hit_rate": 0.8636363636363636
+  },
+  "expansion_examples": [
+    {
+      "id": "Q01",
+      "original": "Điều kiện dự tuyển đại học gồm những yêu cầu nào?",
+      "expanded_b": "Điều kiện dự tuyển đại học gồm những yêu cầu nào? khoản chỉnh https xây sinh bổ biểu hội tập mỹ https xét các dòng định nước chứng riêng thí cho cũng vừa",
+      "expanded_c": "Điều kiện dự tuyển đại học gồm những yêu cầu nào? khoản chỉnh https xây xét khi sinh bổ theo giáo biểu hội tập mỹ https tiếng bạ xét các dòng định nước chứng riêng thí nhân về cho cũng vừa chắc bên",
+      "expanded_c_method": "hyde_fallback_local"
+    },
+    {
+      "id": "Q08",
+      "original": "IELTS có được dùng để xét tuyển đại học không?",
+      "expanded_b": "IELTS có được dùng để xét tuyển đại học không? trong nhưng nhung bộ công đăng https thông thời tốt sinh bổ biểu hội tập mỹ https chỉ giới",
+      "expanded_c": "IELTS có được dùng để xét tuyển đại học không? trong nhưng nhung https 10682 bộ công đăng phép duyệt https thông thời tốt kết công sinh bổ theo giáo biểu hội tập mỹ https tiếng bạ chỉ giới thay bạn",
+      "expanded_c_method": "hyde_fallback_local"
+    },
+    {
+      "id": "Q13",
+      "original": "Việc bỏ cộng điểm IELTS có đồng thuận không?",
+      "expanded_b": "Việc bỏ cộng điểm IELTS có đồng thuận không? sử tuyển xác thi chuẩn môn trong nhưng nhung https bộ anh admission hay trả chỉ giới",
+      "expanded_c": "Việc bỏ cộng điểm IELTS có đồng thuận không? sử tuyển xác vào từ thi chuẩn môn ưu 10 trong nhưng nhung https 10682 https bộ anh thời tháp admission hay trả chỉ giới thay bạn",
+      "expanded_c_method": "hyde_fallback_local"
+    },
+    {
+      "id": "Q19",
+      "original": "Tuyensinh247.com là cổng thông tin gì?",
+      "expanded_b": "Tuyensinh247.com là cổng thông tin gì? vn channel thanhnien https tư tức đã nóng",
+      "expanded_c": "Tuyensinh247.com là cổng thông tin gì? vn channel thanhnien baothanhnien preferences https tư minh điệp tức đã nóng tuc chuyển",
+      "expanded_c_method": "hyde_fallback_local"
+    }
+  ]
+}

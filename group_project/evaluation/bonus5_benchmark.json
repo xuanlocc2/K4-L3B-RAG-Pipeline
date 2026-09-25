@@ -1,0 +1,204 @@
+{
+  "A_standalone_no_memory": {
+    "n": 22,
+    "context_precision": 0.5,
+    "context_recall": 0.8409090909090909,
+    "source_hit_rate": 0.9090909090909091,
+    "rewrites": 0,
+    "passthrough": 22
+  },
+  "B_standalone_with_memory_passthrough": {
+    "n": 22,
+    "context_precision": 0.5,
+    "context_recall": 0.8409090909090909,
+    "source_hit_rate": 0.9090909090909091,
+    "rewrites": 1,
+    "passthrough": 21
+  },
+  "C_followup_with_memory": {
+    "n": 22,
+    "context_precision": 0.35454545454545466,
+    "context_recall": 0.75,
+    "source_hit_rate": 0.8181818181818182,
+    "rewrites": 22,
+    "passthrough": 0
+  },
+  "per_case_followup": [
+    {
+      "id": "Q01",
+      "cp": 0.8,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "Điều kiện tuyển đại học Còn vậy thì sao?"
+    },
+    {
+      "id": "Q02",
+      "cp": 0.4,
+      "cr": 0.5,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "phương thức xét tuyển Còn vậy thì sao?"
+    },
+    {
+      "id": "Q03",
+      "cp": 0.4,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "nguyện vọng Còn vậy thì sao?"
+    },
+    {
+      "id": "Q04",
+      "cp": 0.6,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "điểm ưu tiên Còn vậy thì sao?"
+    },
+    {
+      "id": "Q05",
+      "cp": 0.4,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "Trường hợp nhiều thí sinh Còn vậy thì sao?"
+    },
+    {
+      "id": "Q06",
+      "cp": 0.4,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "thi tốt nghiệp THPT Còn vậy thì sao?"
+    },
+    {
+      "id": "Q07",
+      "cp": 0.4,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "thi tốt nghiệp THPT Còn vậy thì sao?"
+    },
+    {
+      "id": "Q08",
+      "cp": 0.8,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "IELTS Còn vậy thì sao?"
+    },
+    {
+      "id": "Q09",
+      "cp": 0.4,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "Thông 2022 BGDĐT phạm dụng Còn vậy thì sao?"
+    },
+    {
+      "id": "Q10",
+      "cp": 0.2,
+      "cr": 0.5,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "học sinh giỏi quốc gia Còn vậy thì sao?"
+    },
+    {
+      "id": "Q11",
+      "cp": 0.0,
+      "cr": 0.0,
+      "hit": false,
+      "rewrote": true,
+      "rewritten_query": "tổ hợp môn Còn vậy thì sao?"
+    },
+    {
+      "id": "Q12",
+      "cp": 0.2,
+      "cr": 0.5,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "Toán Còn vậy thì sao?"
+    },
+    {
+      "id": "Q13",
+      "cp": 0.6,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "IELTS Còn vậy thì sao?"
+    },
+    {
+      "id": "Q14",
+      "cp": 0.4,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "phương thức xét tuyển Còn vậy thì sao?"
+    },
+    {
+      "id": "Q15",
+      "cp": 0.4,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "VSTEP Còn vậy thì sao?"
+    },
+    {
+      "id": "Q16",
+      "cp": 0.4,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "hồ sơ dự tuyển Còn vậy thì sao?"
+    },
+    {
+      "id": "Q17",
+      "cp": 0.4,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "tuyển sinh bổ sung Còn vậy thì sao?"
+    },
+    {
+      "id": "Q18",
+      "cp": 0.2,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "Tuyển sinh đại học những Còn vậy thì sao?"
+    },
+    {
+      "id": "Q19",
+      "cp": 0.0,
+      "cr": 0.0,
+      "hit": false,
+      "rewrote": true,
+      "rewritten_query": "Tuyensinh247 Còn vậy thì sao?"
+    },
+    {
+      "id": "Q20",
+      "cp": 0.0,
+      "cr": 0.0,
+      "hit": false,
+      "rewrote": true,
+      "rewritten_query": "Thủ tục đăng kết hôn Còn vậy thì sao?"
+    },
+    {
+      "id": "Q21",
+      "cp": 0.0,
+      "cr": 0.0,
+      "hit": false,
+      "rewrote": true,
+      "rewritten_query": "Lãi suất ngân hàng Techcombank Còn vậy thì sao?"
+    },
+    {
+      "id": "Q22",
+      "cp": 0.4,
+      "cr": 1.0,
+      "hit": true,
+      "rewrote": true,
+      "rewritten_query": "thi tốt nghiệp THPT Còn vậy thì sao?"
+    }
+  ]
+}
