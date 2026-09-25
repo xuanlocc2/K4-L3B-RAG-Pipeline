@@ -32,18 +32,50 @@ class EmbeddedChunk(Chunk):
     embedding: list[float]
 
 
-class SearchResult(TypedDict):
+class SearchResult(TypedDict, total=False):
+    """Public search-result schema.
+
+    Required (existing contract — backward-compatible):
+        id, content, score, metadata, retrieval_method.
+
+    Optional (added by evidence-quality work — populated when available):
+        dense_score, bm25_score, rrf_score.
+
+    The required ``score`` is whatever number was used for ranking this result
+    in its final list — for a hybrid result this is the RRF score, for a
+    dense-only result it is the cosine similarity, etc. It is a ranking signal,
+    NOT a confidence percentage. Callers that need to talk about confidence
+    must consult the evidence-quality gate (see ``src/evidence_quality.py``).
+    """
+
     id: str
     content: str
     score: float
     metadata: ChunkMetadata
     retrieval_method: RetrievalMethod
+    dense_score: float
+    bm25_score: float
+    rrf_score: float
 
 
-class GenerationResult(TypedDict):
+class GenerationResult(TypedDict, total=False):
+    """Public generation result schema.
+
+    Required (existing contract):
+        answer, sources, retrieval_source.
+
+    Optional (added by evidence-quality work):
+        evidence, intent, normalized_query, diagnostics, citation_check.
+    """
+
     answer: str
     sources: list[SearchResult]
     retrieval_source: RetrievalSource
+    evidence: dict
+    intent: dict
+    normalized_query: str | None
+    diagnostics: dict
+    citation_check: dict
 
 
 def validate_document(item: object, *, require_chunk: bool = False) -> None:
@@ -104,6 +136,34 @@ def validate_search_results(
         raise ValueError("search result IDs must be unique")
     if scores != sorted(scores, reverse=True):
         raise ValueError("search results must be sorted by score descending")
+
+
+def _is_optional_score(value: object) -> bool:
+    return value is None or (
+        isinstance(value, (int, float))
+        and not isinstance(value, bool)
+        and float("-inf") < float(value) < float("inf")
+    )
+
+
+def assert_extended_score_fields(results: object) -> None:
+    """Soft-check for the optional ``dense_score``/``bm25_score``/``rrf_score``.
+
+    This is intentionally permissive: it only validates type when the field is
+    present. It never raises when the field is absent (the legacy contract
+    doesn't require it), so it is safe to call from any existing test path.
+    """
+    if not isinstance(results, list):
+        return
+    for item in results:
+        if not isinstance(item, dict):
+            continue
+        for key in ("dense_score", "bm25_score", "rrf_score"):
+            if key in item and not _is_optional_score(item[key]):
+                raise ValueError(
+                    f"result.{key} must be a finite number or None, "
+                    f"got {item[key]!r}"
+                )
 
 
 def validate_generation_result(result: object) -> None:
