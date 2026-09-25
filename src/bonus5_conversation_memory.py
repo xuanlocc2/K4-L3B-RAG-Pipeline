@@ -124,29 +124,14 @@ def _topic_from_history(history: list[dict[str, Any]]) -> tuple[str | None, str 
 def _try_llm_rewrite(history: list[dict[str, Any]], query: str) -> str | None:
     """Thử dùng LLM để rewrite. Trả None nếu không có key / lỗi.
 
-    Hỗ trợ ``openai`` và ``groq`` (cùng dùng OpenAI SDK). Các provider
-    khác hiện không được dùng cho rewrite.
     Chỉ dùng khi provider thật sự khả dụng — không được làm pipeline
     crash nếu thiếu key.
     """
     provider = os.getenv("LLM_PROVIDER", "openai").lower()
     try:
-        if provider in ("openai", "groq"):
+        if provider == "openai":
             from openai import OpenAI
-
-            api_key = (
-                os.getenv("GROQ_API_KEY") if provider == "groq"
-                else os.getenv("OPENAI_API_KEY")
-            )
-            if not api_key:
-                return None
-            base_url = (
-                "https://api.groq.com/openai/v1" if provider == "groq" else None
-            )
-            client = OpenAI(api_key=api_key, base_url=base_url)
-            default_model = (
-                "qwen/qwen3.8-27b" if provider == "groq" else "gpt-4o-mini"
-            )
+            client = OpenAI()
             msgs = [
                 {"role": "system", "content": (
                     "Bạn là trợ lý viết lại câu hỏi. Nhiệm vụ: chuyển câu "
@@ -164,7 +149,7 @@ def _try_llm_rewrite(history: list[dict[str, Any]], query: str) -> str | None:
                     })
             msgs.append({"role": "user", "content": query})
             response = client.chat.completions.create(
-                model=os.getenv("LLM_MODEL", "") or default_model,
+                model=os.getenv("LLM_MODEL", "gpt-4o-mini"),
                 messages=msgs,
                 temperature=0.0,
                 max_tokens=120,

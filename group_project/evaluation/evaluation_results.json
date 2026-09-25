@@ -3,7 +3,7 @@
     "top_k": 5,
     "score_threshold": 0.5,
     "embedding_model": "BAAI/bge-m3",
-    "llm_provider": "groq",
+    "llm_provider": "openai",
     "llm_model": "(default per provider)"
   },
   "strategy_a_dense_only": {
@@ -14,11 +14,11 @@
       "context_precision": 0.509090909090909,
       "context_recall": 0.8409090909090909,
       "source_hit_rate": 0.9090909090909091,
-      "answer_overlap": 0.22256452442074484,
-      "answer_fidelity_in_domain": 0.2048209768628193,
-      "answered_rate": 0.7272727272727273,
-      "answered_rate_in_domain": 0.8,
-      "avg_latency_ms": 8142.508695454456
+      "answer_overlap": 0.1042023499762481,
+      "answer_fidelity_in_domain": 0.014622584973872888,
+      "answered_rate": 0.0,
+      "answered_rate_in_domain": 0.0,
+      "avg_latency_ms": 120.75049090873853
     },
     "per_case": [
       {
@@ -37,17 +37,17 @@
           "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Dựa trên các tài liệu được cung cấp, điều kiện dự tuyển đại học bao gồm các yêu cầu chính sau:\n\n1.  **Điều kiện văn bằng:**\n    *   Thí sinh phải tốt nghiệp trung học phổ thông (THPT) theo hình thức giáo dục chính quy hoặc giáo dục thường xuyên [1][4].\n    *   Hoặc có văn bằng tương đương do Bộ Giáo dục và Đào tạo công nhận (ví dụ: chương trình nước ngoài) [1].\n\n2.  **Điều kiện sức khỏe:**\n    *   Thí sinh phải đủ sức khỏe để theo học toàn khóa [1].\n    *   Một số ngành đặc thù (như y khoa, giáo dục thể chất) có thể có yêu cầu riêng về sức khỏe [1].\n\n3.  **Điều kiện về độ tuổi và quốc tịch:**\n    *   Các quy định cụ thể về độ tuổi và quốc tịch được nêu trong danh mục điều kiện xét tuyển [1].\n\n4.  **Điều kiện ngoại ngữ / đầu vào một số ngành:**\n    *   Một số ngành có yêu cầu riêng về ngoại ngữ hoặc điều kiện đầu vào [1].\n\n5.  **Yêu cầu về tổ hợp môn xét tuyển:**\n    *   Thí sinh cần đáp ứng yêu cầu về tổ hợp môn phù hợp với ngành đăng ký [1].\n\n6.  **Điều kiện cụ thể đối với phương thức xét học bạ (nếu áp dụng):**\n    *   Ngoài các điều kiện chung, thí sinh sử dụng phương thức xét học bạ phải đạt một trong hai điều kiện sau:\n        *   Đạt ngưỡng đầu vào của phương thức tuyển sinh theo kết quả thi tốt nghiệp THPT là 20 điểm [3].\n        *   Có kết quả trung bình chung học tập được đánh giá mức tốt (học lực xếp loại từ giỏi trở lên) cả năm lớp 12 (hoặc 2 học kỳ năm cuối cấp đối với đối tượng trung học nghề) và tổng điểm 3 môn thi tốt nghiệp THPT theo tổ hợp xét tuyển [3].\n\n7.  **Đối tượng xét tuyển thẳng:**\n    *   Bao gồm học sinh giỏi quốc gia, quốc tế, đội tuyển Olympic, vận động viên cấp quốc gia... theo quy chế của Bộ GD&ĐT [4].",
-        "answer_status": "answered",
-        "latency_ms": 2727.772399999594,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 811.3519999988057,
         "metadata": {
-          "retrieval_latency_ms": 8457.666500000414,
+          "retrieval_latency_ms": 8321.779300000344,
           "category": "factual",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 0.8,
           "context_recall": 1.0,
-          "answer_overlap": 0.15337423312883436,
+          "answer_overlap": 0.0,
           "top1_score": 0.7095671892166138
         }
       },
@@ -67,17 +67,17 @@
           "news/article_02.md::chunk-18"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Dựa trên các tài liệu được cung cấp, các phương thức xét tuyển phổ biến hiện nay bao gồm:\n\n1.  **Xét tuyển thẳng** theo quy chế của Bộ Giáo dục và Đào tạo, áp dụng cho các đối tượng như học sinh giỏi quốc gia, quốc tế, thành viên đội tuyển Olympic, vận động viên cấp quốc gia... [1].\n2.  **Xét tuyển kết hợp với chứng chỉ quốc tế** như SAT, A-Level, IELTS... theo quy định riêng của từng trường [3].\n3.  **Xét tuyển đầu vào riêng** của các trường đại học dựa trên đề án đã được Bộ Giáo dục và Đào tạo phê duyệt [3].\n4.  **Xét tuyển dựa trên kết quả học bạ** (học lực THPT), trong đó thí sinh cần đáp ứng các điều kiện cụ thể như đạt ngưỡng đầu vào nhất định hoặc có học lực giỏi trở lên [4].\n5.  **Xét tuyển dựa trên kết quả thi tốt nghiệp THPT** (sử dụng điểm thi các môn trong tổ hợp xét tuyển) [4].\n\nNgoài ra, thí sinh cần nộp **Phiếu đăng ký xét tuyển** theo mẫu thống nhất của Bộ Giáo dục và Đào tạo (thường nộp trực tuyến) cùng các giấy tờ như bản sao hợp lệ giấy chứng nhận tốt nghiệp tạm thời/bằng tốt nghiệp và học bạ/phiếu điểm thi [3].",
-        "answer_status": "answered",
-        "latency_ms": 1176.395999998931,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 86.03530000073079,
         "metadata": {
-          "retrieval_latency_ms": 107.83009999977367,
+          "retrieval_latency_ms": 87.68380000037723,
           "category": "factual",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 0.6,
           "context_recall": 0.5,
-          "answer_overlap": 0.1885245901639344,
+          "answer_overlap": 0.0,
           "top1_score": 0.6269232630729675
         }
       },
@@ -96,17 +96,17 @@
           "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-1"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Theo các tài liệu được cung cấp, số lượng nguyện vọng tối đa mà mỗi thí sinh được đăng ký có sự khác biệt tùy thuộc vào quy định cụ thể của từng năm hoặc từng trường:\n\n1.  Trong một số trường hợp cụ thể (như bài báo về trường ĐH công lập xét tuyển bổ sung), thí sinh chỉ được đăng ký **tối đa 3 nguyện vọng** [1].\n2.  Tuy nhiên, theo Quy chế tuyển sinh đại học 2025, mỗi thí sinh được đăng ký **tối đa nhiều nguyện vọng theo quy định từng năm (thường không giới hạn số nguyện vọng)** [5].\n\nDo đó, số lượng nguyện vọng tối đa phụ thuộc vào quy định chung của năm tuyển sinh và quy định cụ thể của từng trường.",
-        "answer_status": "answered",
-        "latency_ms": 924.0993000003073,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 89.06529999876511,
         "metadata": {
-          "retrieval_latency_ms": 128.80960000074992,
+          "retrieval_latency_ms": 90.21860000029847,
           "category": "lexical",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 0.2,
           "context_recall": 1.0,
-          "answer_overlap": 0.1518987341772152,
+          "answer_overlap": 0.06451612903225806,
           "top1_score": 0.7563502788543701
         }
       },
@@ -125,17 +125,17 @@
           "news/article_02.md::chunk-18"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Theo quy chế tuyển sinh, điểm ưu tiên khu vực được cộng tối đa 1.5 điểm đối với khu vực 1 (KV1) [5].",
-        "answer_status": "answered",
-        "latency_ms": 13120.359700000336,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 86.17729999969015,
         "metadata": {
-          "retrieval_latency_ms": 112.15629999969678,
+          "retrieval_latency_ms": 84.35929999905056,
           "category": "lexical",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.6,
           "context_recall": 1.0,
-          "answer_overlap": 0.37037037037037035,
+          "answer_overlap": 0.034482758620689655,
           "top1_score": 0.6869250535964966
         }
       },
@@ -154,17 +154,17 @@
           "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-6"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Khi nhiều thí sinh bằng điểm ở ngưỡng chỉ tiêu cuối cùng, các tiêu chí phụ (như điểm môn chính, thứ tự nguyện vọng, ...) sẽ được áp dụng theo quy định của từng trường [1].",
-        "answer_status": "answered",
-        "latency_ms": 1841.0318000005645,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 89.04439999969327,
         "metadata": {
-          "retrieval_latency_ms": 107.38899999887508,
+          "retrieval_latency_ms": 86.72630000000936,
           "category": "factual",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.6,
           "context_recall": 1.0,
-          "answer_overlap": 0.4722222222222222,
+          "answer_overlap": 0.0,
           "top1_score": 0.6675071716308594
         }
       },
@@ -183,17 +183,17 @@
           "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-0"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Theo quy chế thi tốt nghiệp THPT 2025, các bài thi bao gồm:\n\n1. **Ba bài thi bắt buộc**: Toán, Ngữ văn và Ngoại ngữ [1][2].\n2. **Các bài thi tổ hợp**: Hình thức thi là trắc nghiệm [2].\n\nNgoài ra, đề thi được thiết kế đảm bảo chuẩn kiến thức, kỹ năng của chương trình Giáo dục phổ thông 2018 và có tính phân hóa phù hợp [1].",
-        "answer_status": "answered",
-        "latency_ms": 815.0588999997126,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 84.85969999856025,
         "metadata": {
-          "retrieval_latency_ms": 116.62109999997483,
+          "retrieval_latency_ms": 85.07970000027854,
           "category": "factual",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.6,
           "context_recall": 1.0,
-          "answer_overlap": 0.22058823529411764,
+          "answer_overlap": 0.0,
           "top1_score": 0.6664276123046875
         }
       },
@@ -212,17 +212,17 @@
           "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-2"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Theo thông tin trong tài liệu, hình thức thi các môn trong kỳ thi tốt nghiệp THPT được quy định như sau:\n\n*   **Bài thi Toán và Ngoại ngữ:** Thi theo hình thức trắc nghiệm (trừ một số bài thi chuyên ngành) [5].\n*   **Bài thi Ngữ văn:** Thi theo hình thức tự luận [5].\n*   **Các bài thi tổ hợp:** Thi theo hình thức trắc nghiệm [5].",
-        "answer_status": "answered",
-        "latency_ms": 7973.723700000846,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 90.69869999984803,
         "metadata": {
-          "retrieval_latency_ms": 111.60589999963122,
+          "retrieval_latency_ms": 87.12829999967653,
           "category": "factual",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 1.0,
-          "answer_overlap": 0.3684210526315789,
+          "answer_overlap": 0.0,
           "top1_score": 0.6893789768218994
         }
       },
@@ -243,17 +243,17 @@
           "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-2"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Dựa trên các tài liệu được cung cấp, IELTS có được sử dụng trong quá trình xét tuyển đại học, cụ thể như sau:\n\n1.  **Quy đổi điểm:** Mỗi trường đại học sẽ công bố bảng quy đổi riêng trong đề án tuyển sinh hằng năm, trong đó có quy đổi điểm IELTS (ví dụ: IELTS 5.5) [1].\n2.  **Thảo luận về chính sách:** Các nguồn tin đang thảo luận về việc \"bỏ cộng điểm IELTS\" trong xét tuyển đại học, cho thấy trước đó IELTS được dùng để cộng điểm ưu tiên [2][3][5].\n3.  **Yêu cầu đầu vào:** Đối với một số chương trình (ví dụ: Keiser University), điều kiện đầu vào không bắt buộc phải có chứng chỉ IELTS; thí sinh chưa có IELTS vẫn có thể xét tuyển bình thường qua bài kiểm tra năng lực đầu vào [4].\n\nTóm lại, IELTS được sử dụng để quy đổi điểm hoặc cộng điểm ưu tiên tùy theo quy định cụ thể của từng trường đại học trong từng năm tuyển sinh [1][2][3].",
-        "answer_status": "answered",
-        "latency_ms": 1146.909199998845,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 82.0478000005096,
         "metadata": {
-          "retrieval_latency_ms": 105.06600000007893,
+          "retrieval_latency_ms": 84.4636999991053,
           "category": "multi-document",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.8,
           "context_recall": 1.0,
-          "answer_overlap": 0.18691588785046728,
+          "answer_overlap": 0.027777777777777776,
           "top1_score": 0.7021543979644775
         }
       },
@@ -274,9 +274,9 @@
         "retrieval_method": "dense-only",
         "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
         "answer_status": "refusal",
-        "latency_ms": 12800.998400000026,
+        "latency_ms": 91.53869999863673,
         "metadata": {
-          "retrieval_latency_ms": 115.30049999964831,
+          "retrieval_latency_ms": 92.40130000034696,
           "category": "factual",
           "difficulty": "medium",
           "source_hit": true,
@@ -302,17 +302,17 @@
           "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-1"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Dựa trên các tài liệu được cung cấp, có thông tin về chính sách cho học sinh giỏi quốc gia như sau:\n\nTheo quy chế tuyển sinh đại học 2025, một trong các phương thức xét tuyển phổ biến là **xét tuyển thẳng** theo quy chế của Bộ Giáo dục và Đào tạo, áp dụng cho đối tượng **học sinh giỏi quốc gia** (cùng với học sinh giỏi quốc tế, đội tuyển Olympic, vận động viên cấp quốc gia...) [5].\n\nTuy nhiên, một bài báo từ Báo Dân trí cũng đề cập đến việc **bỏ ưu tiên xét tuyển**, dẫn đến việc nhiều nhóm học sinh giỏi quốc gia có thể \"mất quyền lợi\" [1].\n\nDo đó, mặc dù quy chế 2025 có nêu phương thức xét tuyển thẳng cho học sinh giỏi quốc gia [5], nhưng có thông tin cho thấy chính sách ưu tiên này có thể bị thay đổi hoặc bãi bỏ, gây ảnh hưởng đến quyền lợi của nhóm đối tượng này [1].",
-        "answer_status": "answered",
-        "latency_ms": 5380.366100000174,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 88.11720000085188,
         "metadata": {
-          "retrieval_latency_ms": 129.19629999851168,
+          "retrieval_latency_ms": 84.34180000040215,
           "category": "multi-document",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.6,
           "context_recall": 0.5,
-          "answer_overlap": 0.2037037037037037,
+          "answer_overlap": 0.0,
           "top1_score": 0.6243674159049988
         }
       },
@@ -331,17 +331,17 @@
           "news/article_02.md::chunk-21"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Tổ hợp môn xét tuyển A00 gồm các môn: Toán, Lý, Hóa [2].",
-        "answer_status": "answered",
-        "latency_ms": 42949.12889999978,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 90.3928999996424,
         "metadata": {
-          "retrieval_latency_ms": 113.71969999891007,
+          "retrieval_latency_ms": 86.61770000071556,
           "category": "lexical",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 1.0,
-          "answer_overlap": 0.4,
+          "answer_overlap": 0.0,
           "top1_score": 0.6314703822135925
         }
       },
@@ -361,17 +361,17 @@
           "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-3"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Dựa trên các tài liệu được cung cấp, đề thi Toán trong kỳ thi tốt nghiệp THPT hiện nay có các đặc điểm sau:\n\n*   **Hình thức thi:** Là bài thi trắc nghiệm (trừ một số bài thi chuyên ngành) [1].\n*   **Nội dung và cấu trúc:** Đề thi được xây dựng theo ma trận đề, đảm bảo phân hóa trình độ [4].\n*   **Yêu cầu chuẩn kiến thức:** Đề thi đảm bảo chuẩn kiến thức, kỹ năng của chương trình Giáo dục phổ thông 2018 và có tính phân hóa phù hợp [5].\n*   **Vai trò:** Toán là một trong 3 bài thi bắt buộc (cùng với Ngữ văn và Ngoại ngữ) [1].",
-        "answer_status": "answered",
-        "latency_ms": 935.7089000004635,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 92.75639999941632,
         "metadata": {
-          "retrieval_latency_ms": 120.52800000128627,
+          "retrieval_latency_ms": 94.63880000112113,
           "category": "multi-document",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 0.5,
-          "answer_overlap": 0.09375,
+          "answer_overlap": 0.02631578947368421,
           "top1_score": 0.6192872524261475
         }
       },
@@ -391,11 +391,11 @@
           "news/article_08.md::chunk-3"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.\n\n_(Lưu ý: câu trả lời này không chứa citation hợp lệ; vui lòng kiểm tra nguồn trước khi sử dụng.)_",
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
         "answer_status": "refusal",
-        "latency_ms": 674.9529999997321,
+        "latency_ms": 88.65200000036566,
         "metadata": {
-          "retrieval_latency_ms": 100.11089999898104,
+          "retrieval_latency_ms": 81.73170000009122,
           "category": "comparison",
           "difficulty": "medium",
           "source_hit": true,
@@ -420,11 +420,11 @@
           "news/article_06.md::chunk-1"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.\n\n_(Lưu ý: câu trả lời này không chứa citation hợp lệ; vui lòng kiểm tra nguồn trước khi sử dụng.)_",
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
         "answer_status": "refusal",
-        "latency_ms": 677.4667999998201,
+        "latency_ms": 90.06199999930686,
         "metadata": {
-          "retrieval_latency_ms": 109.22190000019327,
+          "retrieval_latency_ms": 89.63649999896006,
           "category": "semantic_paraphrase",
           "difficulty": "medium",
           "source_hit": true,
@@ -449,17 +449,17 @@
           "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-2"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Theo thông tin trong tài liệu, VSTEP là chứng chỉ do các trường đại học Việt Nam được Bộ Giáo dục và Đào tạo ủy quyền tổ chức [5].",
-        "answer_status": "answered",
-        "latency_ms": 3833.838200000173,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 82.05830000042624,
         "metadata": {
-          "retrieval_latency_ms": 98.7172000004648,
+          "retrieval_latency_ms": 79.82160000028671,
           "category": "lexical",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.6,
           "context_recall": 1.0,
-          "answer_overlap": 0.46153846153846156,
+          "answer_overlap": 0.0,
           "top1_score": 0.5497133731842041
         }
       },
@@ -478,17 +478,17 @@
           "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Dựa trên các tài liệu được cung cấp, hồ sơ dự tuyển đại học cần bao gồm các giấy tờ sau:\n\n*   **Phiếu đăng ký xét tuyển** theo mẫu thống nhất của Bộ Giáo dục và Đào tạo (nộp trực tuyến) [3].\n*   **Bản sao hợp lệ giấy chứng nhận tốt nghiệp tạm thời** hoặc bằng tốt nghiệp THPT [3].\n*   **Bản sao hợp lệ học bạ THPT** hoặc phiếu điểm thi tốt nghiệp [3].\n\nNgoài ra, đối với một số trường cụ thể (như Trường ĐH Thủ Dầu Một trong trường hợp xét tuyển bổ sung), nhà trường có thể chưa yêu cầu thí sinh nộp học bạ, bằng tốt nghiệp THPT và các giấy tờ ưu tiên ngay lập tức, mà sẽ yêu cầu nộp để đối chiếu khi nhập học [1].",
-        "answer_status": "answered",
-        "latency_ms": 11167.594499998813,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 86.58829999876616,
         "metadata": {
-          "retrieval_latency_ms": 96.87599999961094,
+          "retrieval_latency_ms": 89.40499999880558,
           "category": "factual",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 1.0,
-          "answer_overlap": 0.23469387755102042,
+          "answer_overlap": 0.023809523809523808,
           "top1_score": 0.6545861959457397
         }
       },
@@ -507,17 +507,17 @@
           "news/article_02.md::chunk-11"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Dựa trên các tài liệu được cung cấp, thông tin đáng chú ý về tuyển sinh bổ sung năm 2026 bao gồm:\n\n1.  **Trường ĐH Thủ Dầu Một** đang xét tuyển bổ sung **9 ngành** với mức điểm sàn là **15 điểm** [2].\n2.  Trường sử dụng **2 phương thức tuyển sinh**, trong đó có phương thức xét kết quả kỳ thi tốt nghiệp THPT năm 2026 [2].\n3.  Điều kiện cụ thể là thí sinh phải có tổng điểm 3 môn thi (hoặc điểm thi môn Toán, Ngữ văn và một môn khác) đạt tối thiểu **15 điểm** theo thang điểm 30 [3].\n4.  Quy định này áp dụng cho thí sinh thi tốt nghiệp từ năm 2026, **không áp dụng** cho thí sinh đã tốt nghiệp từ năm 2025 trở về trước [3].\n5.  Nhà trường **chưa yêu cầu** thí sinh nộp học bạ, bằng tốt nghiệp THPT và các giấy tờ ưu tiên ngay lúc này; các giấy tờ này sẽ được yêu cầu nộp khi nhập học để đối chiếu [4].\n6.  Nếu thí sinh kê khai thông tin không đúng, trường sẽ **từ chối kết quả trúng tuyển** [4].",
-        "answer_status": "answered",
-        "latency_ms": 14381.101400000261,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 90.27149999928952,
         "metadata": {
-          "retrieval_latency_ms": 120.91869999858318,
+          "retrieval_latency_ms": 113.73240000102669,
           "category": "source-specific",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 1.0,
           "context_recall": 1.0,
-          "answer_overlap": 0.14960629921259844,
+          "answer_overlap": 0.023255813953488372,
           "top1_score": 0.6348823308944702
         }
       },
@@ -536,17 +536,17 @@
           "news/article_01.md::chunk-20"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Dựa trên các tài liệu được cung cấp, tuyển sinh đại học Mỹ cho học sinh Việt Nam có các con đường/lựa chọn lộ trình sau:\n\n1.  **Học 4+0 tại Việt Nam:** Người học có thể lựa chọn chương trình học 4 năm hoàn toàn tại Việt Nam [1].\n2.  **Học 2+2 (Việt Nam và chuyển tiếp sang Mỹ):** Người học có thể học 2 năm tại Việt Nam và chuyển tiếp 2 năm ở nước Mỹ [1].\n\nCác tài liệu nhấn mạnh rằng không phải học sinh nào cũng cần hoặc sẵn sàng sang Mỹ từ năm nhất, và mỗi lộ trình phù hợp với mục tiêu, độ sẵn sàng và điều kiện khác nhau của người học [1].",
-        "answer_status": "answered",
-        "latency_ms": 13135.150400001294,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 88.53679999992892,
         "metadata": {
-          "retrieval_latency_ms": 111.02419999951962,
+          "retrieval_latency_ms": 97.74349999861442,
           "category": "semantic_paraphrase",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 1.0,
           "context_recall": 1.0,
-          "answer_overlap": 0.2465753424657534,
+          "answer_overlap": 0.027777777777777776,
           "top1_score": 0.6860816478729248
         }
       },
@@ -565,17 +565,17 @@
           "news/article_08.md::chunk-1"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.\n\n_(Lưu ý: câu trả lời này không chứa citation hợp lệ; vui lòng kiểm tra nguồn trước khi sử dụng.)_",
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
         "answer_status": "refusal",
-        "latency_ms": 9870.155099999465,
+        "latency_ms": 85.50999999897613,
         "metadata": {
-          "retrieval_latency_ms": 123.41039999955683,
+          "retrieval_latency_ms": 88.55480000056559,
           "category": "source-specific",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 0.2,
           "context_recall": 1.0,
-          "answer_overlap": 0.0625,
+          "answer_overlap": 0.06451612903225806,
           "top1_score": 0.4563930034637451
         }
       },
@@ -592,17 +592,17 @@
           "news/article_01.md::chunk-4"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.\n\n_(Lưu ý: câu trả lời này không chứa citation hợp lệ; vui lòng kiểm tra nguồn trước khi sử dụng.)_",
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
         "answer_status": "refusal",
-        "latency_ms": 9871.523899999374,
+        "latency_ms": 88.45920000021579,
         "metadata": {
-          "retrieval_latency_ms": 106.32510000141338,
+          "retrieval_latency_ms": 82.33230000041658,
           "category": "out_of_domain",
           "difficulty": "n/a",
           "source_hit": false,
           "context_precision": 0.0,
           "context_recall": 0.0,
-          "answer_overlap": 0.4,
+          "answer_overlap": 1.0,
           "top1_score": 0.5011154413223267
         }
       },
@@ -619,17 +619,17 @@
           "news/article_08.md::chunk-1"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.\n\n_(Lưu ý: câu trả lời này không chứa citation hợp lệ; vui lòng kiểm tra nguồn trước khi sử dụng.)_",
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
         "answer_status": "refusal",
-        "latency_ms": 12986.923200000092,
+        "latency_ms": 88.36100000007718,
         "metadata": {
-          "retrieval_latency_ms": 116.37340000015683,
+          "retrieval_latency_ms": 85.12630000041099,
           "category": "refusal",
           "difficulty": "n/a",
           "source_hit": false,
           "context_precision": 0.0,
           "context_recall": 0.0,
-          "answer_overlap": 0.4,
+          "answer_overlap": 1.0,
           "top1_score": 0.4495185613632202
         }
       },
@@ -648,17 +648,17 @@
           "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-3"
         ],
         "retrieval_method": "dense-only",
-        "answer": "Dựa trên các tài liệu được cung cấp, Quy chế thi tốt nghiệp THPT 2025 có thể được tóm tắt như sau:\n\n1.  **Mục đích và tính chất:**\n    *   Kỳ thi tốt nghiệp THPT là kỳ thi cấp quốc gia, được tổ chức đồng bộ nhằm xét công nhận tốt nghiệp THPT [2].\n    *   Kết quả thi được cung cấp để các trường đại học, cao đẳng sử dụng trong xét tuyển [2].\n\n2.  **Nội dung và hình thức thi:**\n    *   Năm 2025, thí sinh thi theo chương trình Giáo dục phổ thông (GDPT) 2018 [2].\n    *   Đề thi đảm bảo chuẩn kiến thức, kỹ năng của chương trình GDPT 2018 và có tính phân hóa phù hợp [2].\n    *   Quy chế bao gồm các nội dung về các bài thi, môn thi, hình thức thi, điều kiện dự thi, đánh giá và công nhận tốt nghiệp [2].\n\n3.  **Tổ chức và chấm thi:**\n    *   Việc chấm thi được thực hiện tập trung và công khai [3].\n    *   Bộ Giáo dục và Đào tạo (GD&ĐT) chịu trách nhiệm hướng dẫn, kiểm tra và giám sát toàn quốc [3].\n    *   Sở GD&ĐT chịu trách nhiệm chỉ đạo và kiểm tra các đơn vị trực thuộc [3].\n\n4.  **Sử dụng kết quả:**\n    *   Kết quả thi tốt nghiệp THPT được các trường sử dụng để xét tuyển theo tổ hợp môn đã đăng ký [3].\n    *   Các trường được phép kết hợp điểm thi tốt nghiệp với học bạ theo tỷ lệ mà trường công bố [3].\n\n*Lưu ý: Tài liệu [1] và [2] chỉ liệt kê các mục chính của quy chế (như mục đích, các bài thi, hình thức thi...) nhưng không cung cấp chi tiết cụ thể về từng môn thi hay điều kiện dự thi chi tiết trong phần trích dẫn. Tài liệu [3] cung cấp thông tin về quy trình chấm thi và vai trò của các cơ quan quản lý.*",
-        "answer_status": "answered",
-        "latency_ms": 10744.931499999439,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 85.92599999974482,
         "metadata": {
-          "retrieval_latency_ms": 117.7970999997342,
+          "retrieval_latency_ms": 84.14049999919371,
           "category": "semantic_paraphrase",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 1.0,
-          "answer_overlap": 0.1317365269461078,
+          "answer_overlap": 0.0,
           "top1_score": 0.7585231065750122
         }
       }
@@ -672,11 +672,11 @@
       "context_precision": 0.490909090909091,
       "context_recall": 0.7954545454545454,
       "source_hit_rate": 0.8636363636363636,
-      "answer_overlap": 0.2365574541420075,
-      "answer_fidelity_in_domain": 0.22021319955620822,
-      "answered_rate": 0.7727272727272727,
-      "answered_rate_in_domain": 0.85,
-      "avg_latency_ms": 10749.936886363437
+      "answer_overlap": 0.1042023499762481,
+      "answer_fidelity_in_domain": 0.014622584973872888,
+      "answered_rate": 0.0,
+      "answered_rate_in_domain": 0.0,
+      "avg_latency_ms": 87.82192272726455
     },
     "per_case": [
       {
@@ -695,17 +695,17 @@
           "news/article_02.md::chunk-22"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Dựa trên các tài liệu được cung cấp, điều kiện dự tuyển đại học bao gồm các yêu cầu chính sau:\n\n1.  **Điều kiện văn bằng:**\n    *   Thí sinh phải tốt nghiệp Trung học phổ thông (THPT) theo hệ chính quy hoặc giáo dục thường xuyên [1].\n    *   Hoặc có văn bằng tương đương do Bộ Giáo dục và Đào tạo công nhận (ví dụ: chương trình nước ngoài) [1].\n    *   Yêu cầu đã tốt nghiệp THPT theo hình thức giáo dục chính quy hoặc giáo dục thường xuyên [4].\n\n2.  **Điều kiện sức khỏe:**\n    *   Thí sinh phải đủ sức khỏe để theo học toàn khóa [1].\n    *   Một số ngành đặc thù (như y khoa, giáo dục thể chất) có các yêu cầu sức khỏe riêng [1].\n\n3.  **Điều kiện ngoại ngữ và đầu vào ngành:**\n    *   Một số ngành có yêu cầu cụ thể về ngoại ngữ hoặc điều kiện đầu vào [1].\n\n4.  **Điều kiện về độ tuổi và quốc tịch:**\n    *   Có các quy định riêng về độ tuổi và quốc tịch đối với thí sinh [1].\n\n5.  **Yêu cầu về tổ hợp môn:**\n    *   Thí sinh cần đáp ứng yêu cầu về tổ hợp môn xét tuyển [1].\n\n6.  **Điều kiện bổ sung cho phương thức xét học bạ (nếu áp dụng):**\n    *   Ngoài các điều kiện chung, thí sinh xét tuyển bằng học bạ phải đạt một trong hai điều kiện sau:\n        *   Đạt ngưỡng đầu vào của phương thức tuyển sinh theo kết quả thi tốt nghiệp THPT là 20 điểm [3].\n        *   Có kết quả trung bình chung học tập được đánh giá mức tốt (học lực xếp loại từ giỏi trở lên) cả năm lớp 12 (hoặc 2 học kỳ năm cuối cấp đối với đối tượng trung học nghề) và có tổng điểm 3 môn thi tốt nghiệp THPT theo tổ hợp xét tuyển [3].\n\n7.  **Đối tượng xét tuyển thẳng:**\n    *   Bao gồm học sinh giỏi quốc gia, quốc tế, thành viên đội tuyển Olympic, vận động viên cấp quốc gia... theo quy chế của Bộ GD&ĐT [4].\n\n*Lưu ý: Khi nhập học, trường sẽ yêu cầu nộp học bạ, bằng tốt nghiệp THPT và các giấy tờ ưu tiên để đối chiếu; nếu kê khai sai, trường sẽ từ chối kết quả trúng tuyển [2].*",
-        "answer_status": "answered",
-        "latency_ms": 10900.373099999342,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 87.85300000090501,
         "metadata": {
-          "retrieval_latency_ms": 124.85509999896749,
+          "retrieval_latency_ms": 84.75460000045132,
           "category": "factual",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 0.6,
           "context_recall": 1.0,
-          "answer_overlap": 0.15254237288135594,
+          "answer_overlap": 0.0,
           "top1_score": 0.03278688524590164
         }
       },
@@ -725,17 +725,17 @@
           "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Dựa trên các tài liệu được cung cấp, các phương thức xét tuyển phổ biến hiện nay bao gồm:\n\n1.  **Xét tuyển thẳng** theo quy chế của Bộ Giáo dục và Đào tạo, áp dụng cho các đối tượng như học sinh giỏi quốc gia, quốc tế, thành viên đội tuyển Olympic, vận động viên cấp quốc gia... [1].\n2.  **Xét tuyển kết hợp với chứng chỉ quốc tế** (như SAT, A-Level, IELTS...), thực hiện theo quy định riêng của từng trường [3].\n3.  **Xét tuyển đầu vào riêng** của các trường đại học, dựa trên đề án đã được Bộ Giáo dục và Đào tạo phê duyệt [3].\n4.  **Xét tuyển dựa trên kết quả học tập (học bạ)**, trong đó thí sinh cần đáp ứng các điều kiện cụ thể như đạt ngưỡng đầu vào theo kết quả thi tốt nghiệp THPT (ví dụ: 20 điểm) hoặc có học lực xếp loại từ giỏi trở lên cả năm lớp 12 [4].\n\nNgoài ra, hồ sơ đăng ký xét tuyển thường yêu cầu nộp phiếu đăng ký theo mẫu thống nhất của Bộ GD&ĐT (trực tuyến), bản sao hợp lệ giấy chứng nhận tốt nghiệp tạm thời hoặc bằng tốt nghiệp THPT, và học bạ THPT hoặc phiếu điểm thi tốt nghiệp [3].",
-        "answer_status": "answered",
-        "latency_ms": 15735.277300000234,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 85.68800000102783,
         "metadata": {
-          "retrieval_latency_ms": 106.08189999948081,
+          "retrieval_latency_ms": 86.40709999963292,
           "category": "factual",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 0.5,
-          "answer_overlap": 0.17164179104477612,
+          "answer_overlap": 0.0,
           "top1_score": 0.03278688524590164
         }
       },
@@ -754,17 +754,17 @@
           "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-5"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Theo thông tin trong tài liệu, mỗi thí sinh được đăng ký tối đa nhiều nguyện vọng theo quy định từng năm, thường không giới hạn số nguyện vọng [5]. Tuy nhiên, trong một trường hợp cụ thể được nêu tại một trường đại học công lập, thí sinh chỉ được đăng ký tối đa 3 nguyện vọng [1].",
-        "answer_status": "answered",
-        "latency_ms": 21242.011500000444,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 92.73059999941324,
         "metadata": {
-          "retrieval_latency_ms": 125.46420000035141,
+          "retrieval_latency_ms": 95.01300000010815,
           "category": "lexical",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 1.0,
-          "answer_overlap": 0.20754716981132076,
+          "answer_overlap": 0.06451612903225806,
           "top1_score": 0.03278688524590164
         }
       },
@@ -783,17 +783,17 @@
           "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-2"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Theo quy chế tuyển sinh, điểm ưu tiên khu vực được cộng tối đa 1.5 điểm đối với khu vực 1 (KV1) [5].",
-        "answer_status": "answered",
-        "latency_ms": 717.2361000011733,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 86.08559999993304,
         "metadata": {
-          "retrieval_latency_ms": 106.3107999998465,
+          "retrieval_latency_ms": 84.62409999992815,
           "category": "lexical",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.8,
           "context_recall": 1.0,
-          "answer_overlap": 0.37037037037037035,
+          "answer_overlap": 0.034482758620689655,
           "top1_score": 0.032266458495966696
         }
       },
@@ -812,17 +812,17 @@
           "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Khi nhiều thí sinh bằng điểm ở ngưỡng chỉ tiêu cuối cùng, các tiêu chí phụ (điểm môn chính, thứ tự nguyện vọng, ...) sẽ được áp dụng theo quy định của trường [1].",
-        "answer_status": "answered",
-        "latency_ms": 699.4975999987219,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 89.95539999887114,
         "metadata": {
-          "retrieval_latency_ms": 117.30480000005628,
+          "retrieval_latency_ms": 91.85919999981706,
           "category": "factual",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.6,
           "context_recall": 1.0,
-          "answer_overlap": 0.5,
+          "answer_overlap": 0.0,
           "top1_score": 0.03278688524590164
         }
       },
@@ -841,17 +841,17 @@
           "news/article_02.md::chunk-18"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Theo quy chế thi tốt nghiệp THPT 2025, các bài thi bao gồm:\n\n*   **3 bài thi bắt buộc:** Toán, Ngữ văn, và Ngoại ngữ [2].\n*   **Các bài thi tổ hợp:** Hình thức thi là trắc nghiệm [2].\n\nNgoài ra, đề thi đảm bảo chuẩn kiến thức, kỹ năng của chương trình Giáo dục phổ thông 2018 [1].",
-        "answer_status": "answered",
-        "latency_ms": 10053.830700000617,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 87.9521000006207,
         "metadata": {
-          "retrieval_latency_ms": 102.85359999943466,
+          "retrieval_latency_ms": 87.9516999993939,
           "category": "factual",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.6,
           "context_recall": 1.0,
-          "answer_overlap": 0.20967741935483872,
+          "answer_overlap": 0.0,
           "top1_score": 0.03278688524590164
         }
       },
@@ -870,17 +870,17 @@
           "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-3"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Theo thông tin trong tài liệu, hình thức thi các môn trong kỳ thi tốt nghiệp THPT được quy định như sau:\n\n*   **Bài thi Toán và Ngoại ngữ:** Thi theo hình thức trắc nghiệm (trừ một số bài thi chuyên ngành) [5].\n*   **Bài thi Ngữ văn:** Thi theo hình thức tự luận [5].\n*   **Các bài thi tổ hợp:** Thi theo hình thức trắc nghiệm [5].\n\nNgoài ra, đề thi được xây dựng theo ma trận đề, đảm bảo phân hóa trình độ và có tính phân hóa phù hợp [1][4].",
-        "answer_status": "answered",
-        "latency_ms": 9064.792099999977,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 87.41100000042934,
         "metadata": {
-          "retrieval_latency_ms": 113.28669999966223,
+          "retrieval_latency_ms": 87.63269999872136,
           "category": "factual",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 1.0,
-          "answer_overlap": 0.25,
+          "answer_overlap": 0.0,
           "top1_score": 0.03252247488101534
         }
       },
@@ -901,17 +901,17 @@
           "news/article_03.md::chunk-0"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Dựa trên các tài liệu được cung cấp, IELTS có được sử dụng trong quá trình xét tuyển đại học, cụ thể như sau:\n\n1.  **Sử dụng để quy đổi điểm:** Chứng chỉ IELTS (do Hội đồng Anh, IDP và Cambridge tổ chức) là một trong các chứng chỉ ngoại ngữ được sử dụng, và mỗi trường đại học sẽ công bố bảng quy đổi điểm riêng trong đề án tuyển sinh hằng năm [1].\n2.  **Không bắt buộc trong một số chương trình:** Đối với một số chương trình liên kết hoặc cơ hội học tập (ví dụ như tại Keiser University), điều kiện đầu vào không bắt buộc phải có chứng chỉ tiếng Anh như IELTS; thí sinh chưa có IELTS vẫn có thể xét tuyển bình thường qua bài kiểm tra năng lực đầu vào [4].\n3.  **Thảo luận về chính sách cộng điểm:** Các tài liệu cũng đề cập đến vấn đề bỏ cộng điểm IELTS trong xét tuyển đại học, cho thấy đây là một yếu tố từng được áp dụng và đang được xem xét điều chỉnh [2][3][5].\n\nTóm lại, IELTS được dùng để quy đổi điểm hoặc làm điều kiện đầu vào tùy theo quy định cụ thể của từng trường đại học và chương trình tuyển sinh [1][4].",
-        "answer_status": "answered",
-        "latency_ms": 12382.141399999455,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 86.48330000141868,
         "metadata": {
-          "retrieval_latency_ms": 103.6125999999058,
+          "retrieval_latency_ms": 86.32410000063828,
           "category": "multi-document",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.8,
           "context_recall": 1.0,
-          "answer_overlap": 0.15748031496062992,
+          "answer_overlap": 0.027777777777777776,
           "top1_score": 0.03252247488101534
         }
       },
@@ -930,17 +930,17 @@
           "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-0"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Theo thông tin trong tài liệu, Thông tư 08/2022/TT-BGDĐT có phạm vi áp dụng như sau:\n\n*   Văn bản này quy định về việc tuyển sinh đại học và tuyển sinh cao đẳng ngành Giáo dục Mầm non [5].\n*   Phạm vi điều chỉnh bao gồm việc quy định nguyên tắc, nội dung và phương thức tuyển sinh đối với các cơ sở đào tạo đại học [5].\n*   Đối tượng áp dụng bao gồm các trường đại học, học viện công lập và tư thục, cũng như các trường cao đẳng được phép đào tạo [5].",
-        "answer_status": "answered",
-        "latency_ms": 10121.435199998814,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 92.71219999936875,
         "metadata": {
-          "retrieval_latency_ms": 114.49459999857936,
+          "retrieval_latency_ms": 90.51550000003772,
           "category": "factual",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 1.0,
-          "answer_overlap": 0.3384615384615385,
+          "answer_overlap": 0.0,
           "top1_score": 0.03278688524590164
         }
       },
@@ -960,17 +960,17 @@
           "news/article_01.md::chunk-17"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Dựa trên các tài liệu được cung cấp, có thông tin liên quan đến chính sách cho học sinh giỏi quốc gia như sau:\n\nTheo quy chế tuyển sinh đại học 2025, một trong các phương thức xét tuyển phổ biến là **xét tuyển thẳng** theo quy chế của Bộ Giáo dục và Đào tạo, trong đó đối tượng được áp dụng bao gồm **học sinh giỏi quốc gia** [5].\n\nTuy nhiên, một bài báo từ Báo Dân trí có tiêu đề \"Bỏ ưu tiên xét tuyển, nhiều nhóm học sinh giỏi quốc gia 'mất quyền lợi'\" [1] [2], cho thấy có sự thay đổi hoặc bỏ đi các ưu tiên xét tuyển cụ thể, dẫn đến việc nhiều nhóm học sinh giỏi quốc gia bị ảnh hưởng quyền lợi [1] [2].\n\nVì vậy, mặc dù quy chế chung vẫn đề cập đến xét tuyển thẳng cho học sinh giỏi quốc gia [5], nhưng thực tế có thể có sự điều chỉnh hoặc bỏ ưu tiên cụ thể gây ra tranh cãi về quyền lợi của nhóm đối tượng này [1] [2].",
-        "answer_status": "answered",
-        "latency_ms": 11403.959100000066,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 89.02469999884488,
         "metadata": {
-          "retrieval_latency_ms": 96.80110000044806,
+          "retrieval_latency_ms": 87.38310000080673,
           "category": "multi-document",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 0.5,
-          "answer_overlap": 0.1896551724137931,
+          "answer_overlap": 0.0,
           "top1_score": 0.03252247488101534
         }
       },
@@ -989,17 +989,17 @@
           "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-4"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Tổ hợp môn xét tuyển A00 gồm các môn: Toán, Lý, Hóa [2].",
-        "answer_status": "answered",
-        "latency_ms": 8828.965799999423,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 88.52059999844641,
         "metadata": {
-          "retrieval_latency_ms": 103.66239999893878,
+          "retrieval_latency_ms": 84.80669999880774,
           "category": "lexical",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 1.0,
-          "answer_overlap": 0.4,
+          "answer_overlap": 0.0,
           "top1_score": 0.032018442622950824
         }
       },
@@ -1019,17 +1019,17 @@
           "news/article_02.md::chunk-18"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Dựa trên các tài liệu được cung cấp, đề thi Toán trong kỳ thi tốt nghiệp THPT hiện nay có các đặc điểm sau:\n\n*   **Hình thức thi:** Là bài thi trắc nghiệm (trừ một số bài thi chuyên ngành) [1].\n*   **Nội dung và cấu trúc:** Đề thi được xây dựng theo ma trận đề, đảm bảo phân hóa trình độ [4].\n*   **Chuẩn kiến thức:** Đề thi đảm bảo chuẩn kiến thức, kỹ năng của chương trình Giáo dục phổ thông (GDPT) 2018 và có tính phân hóa phù hợp [5].\n*   **Vai trò:** Là một trong 3 bài thi bắt buộc (cùng với Ngữ văn và Ngoại ngữ) [1].",
-        "answer_status": "answered",
-        "latency_ms": 10177.350599999045,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 90.05330000036338,
         "metadata": {
-          "retrieval_latency_ms": 105.83819999919797,
+          "retrieval_latency_ms": 90.78860000045097,
           "category": "multi-document",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 0.5,
-          "answer_overlap": 0.09473684210526316,
+          "answer_overlap": 0.02631578947368421,
           "top1_score": 0.03278688524590164
         }
       },
@@ -1049,11 +1049,11 @@
           "legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.\n\n_(Lưu ý: câu trả lời này không chứa citation hợp lệ; vui lòng kiểm tra nguồn trước khi sử dụng.)_",
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
         "answer_status": "refusal",
-        "latency_ms": 12874.033899999631,
+        "latency_ms": 83.23159999963536,
         "metadata": {
-          "retrieval_latency_ms": 101.0400999984995,
+          "retrieval_latency_ms": 84.68200000061188,
           "category": "comparison",
           "difficulty": "medium",
           "source_hit": true,
@@ -1078,11 +1078,11 @@
           "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-2"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.\n\n_(Lưu ý: câu trả lời này không chứa citation hợp lệ; vui lòng kiểm tra nguồn trước khi sử dụng.)_",
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
         "answer_status": "refusal",
-        "latency_ms": 10886.477399999421,
+        "latency_ms": 90.90900000046531,
         "metadata": {
-          "retrieval_latency_ms": 120.72310000075959,
+          "retrieval_latency_ms": 89.1330000013113,
           "category": "semantic_paraphrase",
           "difficulty": "medium",
           "source_hit": true,
@@ -1107,17 +1107,17 @@
           "legal/thong_tu_dieu_kien_xet_tuyen.md::chunk-2"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Chứng chỉ VSTEP là chứng chỉ do các trường đại học Việt Nam được Bộ Giáo dục và Đào tạo ủy quyền tổ chức [5].",
-        "answer_status": "answered",
-        "latency_ms": 9056.858199999624,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 80.39370000005874,
         "metadata": {
-          "retrieval_latency_ms": 98.36659999928088,
+          "retrieval_latency_ms": 85.07540000027802,
           "category": "lexical",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.6,
           "context_recall": 1.0,
-          "answer_overlap": 0.5,
+          "answer_overlap": 0.0,
           "top1_score": 0.03225806451612903
         }
       },
@@ -1136,17 +1136,17 @@
           "legal/quy_che_tuyen_sinh_dh_2025.md::chunk-3"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Theo thông tin trong context, hồ sơ dự tuyển đại học cần bao gồm các giấy tờ sau:\n\n*   Phiếu đăng ký xét tuyển theo mẫu thống nhất của Bộ GD&ĐT (nộp trực tuyến) [3].\n*   Bản sao hợp lệ giấy chứng nhận tốt nghiệp tạm thời hoặc bằng tốt nghiệp THPT [3].\n*   Bản sao hợp lệ học bạ THPT hoặc phiếu điểm thi tốt nghiệp [3].\n\nNgoài ra, đối với một số trường cụ thể (như Trường ĐH Thủ Dầu Một trong trường hợp xét tuyển bổ sung), nhà trường lưu ý chưa yêu cầu thí sinh nộp học bạ, bằng tốt nghiệp THPT và các giấy tờ ưu tiên ngay lúc này, mà sẽ yêu cầu nộp để đối chiếu khi nhập học [1].",
-        "answer_status": "answered",
-        "latency_ms": 11115.932099999554,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 87.09500000077242,
         "metadata": {
-          "retrieval_latency_ms": 97.67470000042522,
+          "retrieval_latency_ms": 87.33050000046205,
           "category": "factual",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.6,
           "context_recall": 1.0,
-          "answer_overlap": 0.23404255319148937,
+          "answer_overlap": 0.023809523809523808,
           "top1_score": 0.03200204813108039
         }
       },
@@ -1165,17 +1165,17 @@
           "news/article_02.md::chunk-18"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Dựa trên các tài liệu được cung cấp, thông tin đáng chú ý về tuyển sinh bổ sung năm 2026 bao gồm:\n\n1.  **Trường ĐH Thủ Dầu Một xét tuyển bổ sung 9 ngành:** Trong đợt xét tuyển bổ sung năm 2026, Trường ĐH Thủ Dầu Một sử dụng 2 phương thức tuyển sinh, trong đó có xét kết quả kỳ thi tốt nghiệp THPT năm 2026 [2].\n2.  **Điều kiện điểm sàn:** Nguồn xét tuyển yêu cầu thí sinh có tổng điểm 3 môn thi kỳ thi tốt nghiệp THPT (hoặc điểm thi môn toán, ngữ văn và một môn thi khác) đạt tối thiểu 15 điểm theo thang điểm 30 [3].\n3.  **Đối tượng áp dụng:** Quy định điểm tối thiểu 15 điểm này áp dụng cho thí sinh thi tốt nghiệp từ năm 2026, không áp dụng cho thí sinh đã tốt nghiệp từ năm 2025 trở về trước [3].\n4.  **Yêu cầu giấy tờ:** Nhà trường lưu ý chưa yêu cầu thí sinh nộp học bạ, bằng tốt nghiệp THPT và các giấy tờ ưu tiên ngay lúc này; các giấy tờ này sẽ được yêu cầu nộp khi nhập học để đối chiếu, và trường sẽ từ chối kết quả trúng tuyển nếu thí sinh kê khai thông tin không đúng [4].",
-        "answer_status": "answered",
-        "latency_ms": 14422.389700001077,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 90.59949999937089,
         "metadata": {
-          "retrieval_latency_ms": 111.15790000076231,
+          "retrieval_latency_ms": 84.807200000796,
           "category": "source-specific",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 1.0,
           "context_recall": 1.0,
-          "answer_overlap": 0.14634146341463414,
+          "answer_overlap": 0.023255813953488372,
           "top1_score": 0.03252247488101534
         }
       },
@@ -1194,17 +1194,17 @@
           "news/article_01.md::chunk-0"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Dựa trên các tài liệu được cung cấp, tuyển sinh đại học Mỹ cho học sinh Việt Nam có các con đường (lộ trình) sau:\n\n1.  **Lộ trình 4+0 tại Việt Nam:** Người học có thể hoàn thành chương trình học tại Việt Nam [1].\n2.  **Lộ trình 2+2:** Học 2 năm tại Việt Nam và chuyển tiếp sang học 2 năm ở nước Mỹ [1].\n\nCác tài liệu nhấn mạnh rằng không phải học sinh nào cũng cần hoặc sẵn sàng sang Mỹ từ năm nhất, và mỗi lộ trình phù hợp với mục tiêu, độ sẵn sàng và điều kiện khác nhau của người học [1].",
-        "answer_status": "answered",
-        "latency_ms": 12123.296599998866,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 84.01930000036373,
         "metadata": {
-          "retrieval_latency_ms": 99.28059999947436,
+          "retrieval_latency_ms": 90.34040000005916,
           "category": "semantic_paraphrase",
           "difficulty": "easy",
           "source_hit": true,
           "context_precision": 1.0,
           "context_recall": 1.0,
-          "answer_overlap": 0.2535211267605634,
+          "answer_overlap": 0.027777777777777776,
           "top1_score": 0.03131881575727918
         }
       },
@@ -1223,17 +1223,17 @@
           "news/article_01.md::chunk-9"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.\n\n_(Lưu ý: câu trả lời này không chứa citation hợp lệ; vui lòng kiểm tra nguồn trước khi sử dụng.)_",
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
         "answer_status": "refusal",
-        "latency_ms": 10877.591800001028,
+        "latency_ms": 90.66340000026685,
         "metadata": {
-          "retrieval_latency_ms": 105.06789999999455,
+          "retrieval_latency_ms": 89.07020000151533,
           "category": "source-specific",
           "difficulty": "easy",
           "source_hit": false,
           "context_precision": 0.0,
           "context_recall": 0.0,
-          "answer_overlap": 0.0625,
+          "answer_overlap": 0.06451612903225806,
           "top1_score": 0.03177805800756621
         }
       },
@@ -1250,17 +1250,17 @@
           "news/article_08.md::chunk-1"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.\n\n_(Lưu ý: câu trả lời này không chứa citation hợp lệ; vui lòng kiểm tra nguồn trước khi sử dụng.)_",
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
         "answer_status": "refusal",
-        "latency_ms": 9844.592899999043,
+        "latency_ms": 89.69549999892479,
         "metadata": {
-          "retrieval_latency_ms": 94.57780000047933,
+          "retrieval_latency_ms": 85.54439999898023,
           "category": "out_of_domain",
           "difficulty": "n/a",
           "source_hit": false,
           "context_precision": 0.0,
           "context_recall": 0.0,
-          "answer_overlap": 0.4,
+          "answer_overlap": 1.0,
           "top1_score": 0.01639344262295082
         }
       },
@@ -1277,17 +1277,17 @@
           "news/article_07.md::chunk-6"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.\n\n_(Lưu ý: câu trả lời này không chứa citation hợp lệ; vui lòng kiểm tra nguồn trước khi sử dụng.)_",
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
         "answer_status": "refusal",
-        "latency_ms": 11932.681700000103,
+        "latency_ms": 86.52009999968868,
         "metadata": {
-          "retrieval_latency_ms": 101.25330000118993,
+          "retrieval_latency_ms": 86.1153000005288,
           "category": "refusal",
           "difficulty": "n/a",
           "source_hit": false,
           "context_precision": 0.0,
           "context_recall": 0.0,
-          "answer_overlap": 0.4,
+          "answer_overlap": 1.0,
           "top1_score": 0.01639344262295082
         }
       },
@@ -1306,17 +1306,17 @@
           "legal/thong_tu_08_2022_tuyen_sinh.md::chunk-3"
         ],
         "retrieval_method": "hybrid-rrf",
-        "answer": "Dựa trên các tài liệu được cung cấp, Quy chế thi tốt nghiệp THPT 2025 có thể được tóm tắt như sau:\n\n1.  **Mục đích và tính chất:**\n    *   Kỳ thi tốt nghiệp THPT là kỳ thi cấp quốc gia, được tổ chức đồng bộ nhằm xét công nhận tốt nghiệp THPT và cung cấp kết quả để các trường đại học, cao đẳng sử dụng trong xét tuyển [2].\n    *   Đề thi đảm bảo chuẩn kiến thức, kỹ năng của chương trình Giáo dục phổ thông (GDPT) 2018 và có tính phân hóa phù hợp [2].\n\n2.  **Đối tượng và chương trình thi:**\n    *   Năm 2025, các thí sinh dự thi theo chương trình GDPT 2018 [2].\n\n3.  **Nội dung thi:**\n    *   Tài liệu liệt kê các mục chính bao gồm: Các bài thi, môn thi; Hình thức thi; Điều kiện dự thi; Đánh giá, công nhận tốt nghiệp [2].\n    *   Tuy nhiên, nội dung chi tiết cụ thể về danh sách các môn thi bắt buộc/tự chọn hay hình thức thi (trắc nghiệm/tự luận) không được mô tả chi tiết trong các đoạn trích context này, chỉ nêu ra các tiêu đề mục [2].\n\n4.  **Tổ chức và giám sát:**\n    *   Bộ Giáo dục và Đào tạo (GD&ĐT) chịu trách nhiệm hướng dẫn, kiểm tra và giám sát toàn quốc [3].\n    *   Sở GD&ĐT chịu trách nhiệm chỉ đạo và kiểm tra các đơn vị trực thuộc [3].\n    *   Việc chấm thi được thực hiện tập trung và công khai [3].\n\n5.  **Sử dụng kết quả:**\n    *   Kết quả thi tốt nghiệp THPT được các trường đại học, cao đẳng sử dụng để xét tuyển theo tổ hợp môn đã đăng ký [3].\n    *   Các trường được phép kết hợp điểm thi tốt nghiệp với học bạ theo tỷ lệ mà trường công bố [3].\n\n*Lưu ý: Các thông tin trên dựa trên bản tóm tắt quy chế, văn bản gốc được đăng tải tại https://moet.gov.vn/ [3].*",
-        "answer_status": "answered",
-        "latency_ms": 12037.886699999945,
+        "answer": "Tôi không thể xác minh thông tin này từ nguồn hiện có.",
+        "answer_status": "refusal",
+        "latency_ms": 84.48540000063076,
         "metadata": {
-          "retrieval_latency_ms": 102.15810000045167,
+          "retrieval_latency_ms": 85.71950000077777,
           "category": "semantic_paraphrase",
           "difficulty": "medium",
           "source_hit": true,
           "context_precision": 0.4,
           "context_recall": 1.0,
-          "answer_overlap": 0.16574585635359115,
+          "answer_overlap": 0.0,
           "top1_score": 0.03278688524590164
         }
       }

@@ -1,12 +1,28 @@
 """
 Task 6 — Lexical search bằng BM25.
 
-Dùng cùng corpus chunks với Task 5. BM25 phù hợp với từ khóa chính xác, mã tài
-liệu và tên riêng. Output phải theo SearchResult và sort score giảm dần.
+Dùng cùng corpus chunks với Task 4. BM25 phù hợp với từ khoá chính xác,
+mã tài liệu và tên riêng. Output là `SearchResult` và sort score giảm dần.
+
+Vì BM25 cần corpus tại thời điểm xây dựng index, module tự load corpus từ
+`data/corpus_cache.json` (do Task 4 sinh ra) khi chưa có sẵn.
 """
+
+from __future__ import annotations
+
+import json
+import re
+from pathlib import Path
+
+import numpy as np
+from rank_bm25 import BM25Plus
 
 
 CORPUS: list[dict] = []
+_BM25: BM25Plus | None = None
+_CORPUS_PATH = Path(__file__).parent.parent / "data" / "corpus_cache.json"
+
+_TOKEN_RE = re.compile(r"\w+", flags=re.UNICODE)
 
 
 def _tokenize(text: str) -> list[str]:
@@ -33,14 +49,8 @@ def set_corpus(corpus: list[dict]) -> None:
 
 def _ensure_corpus() -> None:
     global CORPUS, _BM25
-    # Nếu CORPUS rỗng thì load từ cache.
     if not CORPUS:
         CORPUS = _load_corpus_from_cache()
-        # Sau khi reload corpus, phải invalidate _BM25 để nó được build
-        # lại với đúng corpus hiện tại. Tránh leak state từ test fixture.
-        if CORPUS:
-            _BM25 = None
-    # Nếu _BM25 chưa được build (hoặc vừa bị invalidate), build lại.
     if _BM25 is None and CORPUS:
         tokenized = [_tokenize(item["content"]) for item in CORPUS]
         _BM25 = BM25Plus(tokenized)
@@ -48,12 +58,8 @@ def _ensure_corpus() -> None:
 
 def build_bm25_index(corpus: list[dict]) -> BM25Plus:
     """Tạo BM25 index từ cùng corpus chunks của Task 4."""
-    # TODO: Tokenize và tạo BM25 index.
-    #
-    # from rank_bm25 import BM25Okapi
-    # tokenized = [item["content"].lower().split() for item in corpus]
-    # return BM25Okapi(tokenized)
-    raise NotImplementedError("Implement build_bm25_index")
+    tokenized = [_tokenize(item["content"]) for item in corpus]
+    return BM25Plus(tokenized)
 
 
 def lexical_search(query: str, top_k: int = 10) -> list[dict]:
@@ -88,7 +94,6 @@ def lexical_search(query: str, top_k: int = 10) -> list[dict]:
                 "id": item["id"],
                 "content": item["content"],
                 "score": score,
-                "bm25_score": score,
                 "metadata": dict(item["metadata"]),
                 "retrieval_method": "bm25",
             }
@@ -99,5 +104,8 @@ def lexical_search(query: str, top_k: int = 10) -> list[dict]:
 
 
 if __name__ == "__main__":
-    for result in lexical_search("test query", top_k=3):
-        print(result)
+    import sys
+
+    sys.stdout.reconfigure(encoding="utf-8")
+    for result in lexical_search("điều kiện xét tuyển đại học", top_k=3):
+        print(result["id"], round(result["score"], 3), result["metadata"].get("title", ""))

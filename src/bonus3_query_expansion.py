@@ -102,31 +102,14 @@ def expand_via_bigrams(query: str, top_k: int = 3) -> str:
 
 
 def _hyde_via_llm(query: str) -> str | None:
-    """Sinh hypothetical document bằng LLM. Trả None nếu không có key.
-
-    Hỗ trợ ``openai`` và ``groq`` (cùng dùng OpenAI SDK). Khi thiếu key
-    hoặc lỗi sẽ trả về None để fallback dùng local bigram expansion.
-    """
+    """Sinh hypothetical document bằng LLM. Trả None nếu không có key."""
     provider = os.getenv("LLM_PROVIDER", "openai").lower()
     try:
-        if provider in ("openai", "groq"):
+        if provider == "openai":
             from openai import OpenAI
-
-            api_key = (
-                os.getenv("GROQ_API_KEY") if provider == "groq"
-                else os.getenv("OPENAI_API_KEY")
-            )
-            if not api_key:
-                return None
-            base_url = (
-                "https://api.groq.com/openai/v1" if provider == "groq" else None
-            )
-            client = OpenAI(api_key=api_key, base_url=base_url)
-            default_model = (
-                "qwen/qwen3.8-27b" if provider == "groq" else "gpt-4o-mini"
-            )
+            client = OpenAI()
             response = client.chat.completions.create(
-                model=os.getenv("LLM_MODEL", "") or default_model,
+                model=os.getenv("LLM_MODEL", "gpt-4o-mini"),
                 messages=[
                     {"role": "system", "content": (
                         "Bạn tạo một đoạn văn ngắn (3-4 câu) trả lời câu hỏi về "

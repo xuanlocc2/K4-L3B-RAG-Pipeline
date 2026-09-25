@@ -29,10 +29,9 @@ Space này deploy `app.py` lên Hugging Face Spaces (Streamlit runtime).
 
 | Tên | Bắt buộc? | Mô tả |
 | --- | --- | --- |
-| `LLM_PROVIDER` | không | `openai` \| `groq` \| `gemini` \| `anthropic`. Mặc định `openai`. |
-| `LLM_MODEL` | không | Tên model cụ thể (ví dụ `gpt-4o-mini`, `llama-3.1-8b-instant`). |
+| `LLM_PROVIDER` | không | `openai` \| `gemini` \| `anthropic`. Mặc định `openai`. |
+| `LLM_MODEL` | không | Tên model cụ thể (ví dụ `gpt-4o-mini`). |
 | `OPENAI_API_KEY` | nếu provider=openai | Secret. |
-| `GROQ_API_KEY` | nếu provider=groq | Secret. Groq dùng OpenAI-compatible API, base URL `https://api.groq.com/openai/v1`. |
 | `GEMINI_API_KEY` | nếu provider=gemini | Secret. |
 | `ANTHROPIC_API_KEY` | nếu provider=anthropic | Secret. |
 | `EMBEDDING_PROVIDER` | không | Mặc định `sentence_transformers`. |

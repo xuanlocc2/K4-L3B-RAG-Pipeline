@@ -1,9 +1,12 @@
 """
 Task 5 — Semantic search.
 
-Embed query bằng chính hàm của Task 4, query ChromaDB và đổi cosine distance
-thành similarity. Output phải theo SearchResult, sort giảm dần và không quá top_k.
+Embed query bằng chính hàm `embed_texts` của Task 4, query ChromaDB và đổi
+cosine distance thành similarity. Output là `SearchResult` theo schema,
+sort giảm dần, không vượt `top_k`.
 """
+
+from __future__ import annotations
 
 from .task4_chunking_indexing import embed_texts, get_collection
 
@@ -24,13 +27,11 @@ def semantic_search(query: str, top_k: int = 10) -> list[dict]:
     metadatas = response.get("metadatas", [[]])[0]
     distances = response.get("distances", [[]])[0]
     for item_id, content, metadata, distance in zip(ids, documents, metadatas, distances):
-        sim = max(0.0, 1.0 - float(distance))
         results.append(
             {
                 "id": item_id,
                 "content": content,
-                "score": sim,
-                "dense_score": sim,
+                "score": max(0.0, 1.0 - float(distance)),
                 "metadata": dict(metadata),
                 "retrieval_method": "dense",
             }
@@ -39,5 +40,8 @@ def semantic_search(query: str, top_k: int = 10) -> list[dict]:
 
 
 if __name__ == "__main__":
-    for result in semantic_search("test query", top_k=3):
-        print(result)
+    import sys
+
+    sys.stdout.reconfigure(encoding="utf-8")
+    for result in semantic_search("điều kiện xét tuyển đại học", top_k=3):
+        print(result["id"], round(result["score"], 3), result["metadata"].get("title", ""))

@@ -1,24 +1,17 @@
 """
-Task 7 — Reciprocal Rank Fusion.
+Task 7 — Reciprocal Rank Fusion (RRF) và Weighted RRF.
 
-RRF gộp nhiều bảng xếp hạng mà không cộng trực tiếp cosine score với BM25
-score. Công thức: RRF(d) = sum(1 / (k + rank)), rank bắt đầu từ 1.
+Công thức chuẩn (RRF):
+    score(d) = sum_i (1 / (k + rank_i))
 
-Lưu ý: RRF score chỉ phản ánh thứ hạng, không dùng để quyết định fallback.
+Trong đó rank_i là thứ hạng của document ``d`` trong bảng xếp hạng thứ ``i``,
+bắt đầu từ 1. RRf gộp nhiều bảng xếp hạng mà không cộng trực tiếp
+cosine similarity với BM25 score (vốn là hai thang đo khác nhau).
 
 Lưu ý quan trọng:
     RRF score chỉ phản ánh thứ hạng, KHÔNG dùng để quyết định fallback
     (Task 9 dùng cosine score gốc của dense result).
     RRF chỉ được áp dụng MỘT LẦN ở giai đoạn fusion cuối cùng của pipeline.
-
-Score semantics:
-    Mỗi kết quả hybrid giữ:
-        - ``score``       : điểm RRF dùng để ranking (KHÔNG phải confidence).
-        - ``rrf_score``   : giá trị RRF gốc (giống ``score`` sau fusion).
-        - ``dense_score`` : cosine similarity gốc nếu chunk có trong dense list.
-        - ``bm25_score``  : BM25 score gốc nếu chunk có trong BM25 list.
-    Các trường optional giúp evidence_quality.py tín hiểu từng signal riêng
-    biệt thay vì chỉ dựa vào RRF.
 
 Weighted RRF (Bonus 1):
     score(d) = sum_i w_i * (1 / (k + rank_i))
@@ -32,81 +25,6 @@ Weighted RRF (Bonus 1):
 
 from __future__ import annotations
 
-from typing import Any
-
-
-def _carry_original_score(item: dict, attr: str) -> float | None:
-    """Đọc optional score (``dense_score``/``bm25_score``) nếu có."""
-    value = item.get(attr)
-    if isinstance(value, (int, float)) and not isinstance(value, bool):
-        return float(value)
-    return None
-
-
-def _fuse(
-    ranked_lists: list[list[dict]],
-    top_k: int,
-    k: int,
-    weights: list[float] | None,
-) -> list[dict]:
-    """Shared fusion core cho RRF / Weighted RRF.
-
-    Trả về list result với ``score = rrf_score`` và các original scores
-    (``dense_score``/``bm25_score``) được gắn kèm nếu chunk có mặt trong
-    list tương ứng. Chỉ số nào vắng mặt trong dense/bm25 sẽ không có
-    original score cho signal đó.
-    """
-    if not ranked_lists:
-        return []
-    if weights is None:
-        weights = [1.0] * len(ranked_lists)
-    if len(weights) != len(ranked_lists):
-        raise ValueError(
-            f"weights length ({len(weights)}) must match ranked_lists "
-            f"({len(ranked_lists)})"
-        )
-    for w in weights:
-        if w < 0:
-            raise ValueError("weights must be non-negative")
-
-    # Track original scores per chunk để fusion giữ được signal gốc.
-    dense_per_id: dict[str, float] = {}
-    bm25_per_id: dict[str, float] = {}
-    rrf_scores: dict[str, float] = {}
-    items: dict[str, dict] = {}
-
-    for ranked_list, weight in zip(ranked_lists, weights):
-        for rank, item in enumerate(ranked_list, 1):
-            item_id = item["id"]
-            rrf_scores[item_id] = rrf_scores.get(item_id, 0.0) + (
-                weight * 1.0 / (k + rank)
-            )
-            items[item_id] = item
-            dense_score = _carry_original_score(item, "dense_score")
-            if dense_score is not None:
-                dense_per_id[item_id] = max(
-                    dense_per_id.get(item_id, dense_score), dense_score
-                )
-            bm25_score = _carry_original_score(item, "bm25_score")
-            if bm25_score is not None:
-                bm25_per_id[item_id] = max(
-                    bm25_per_id.get(item_id, bm25_score), bm25_score
-                )
-
-    ranked_ids = sorted(rrf_scores, key=rrf_scores.get, reverse=True)
-    results: list[dict] = []
-    for item_id in ranked_ids[:top_k]:
-        base: dict[str, Any] = dict(items[item_id])
-        rrf_value = float(rrf_scores[item_id])
-        base["score"] = rrf_value
-        base["rrf_score"] = rrf_value
-        if item_id in dense_per_id:
-            base["dense_score"] = dense_per_id[item_id]
-        if item_id in bm25_per_id:
-            base["bm25_score"] = bm25_per_id[item_id]
-        results.append(base)
-    return results
-
 
 def rerank_rrf(
     ranked_lists: list[list[dict]],
@@ -115,13 +33,25 @@ def rerank_rrf(
 ) -> list[dict]:
     """Fuse nhiều ranked lists bằng RRF chuẩn.
 
-    ``score`` (và ``rrf_score``) trên kết quả là RRF gốc — KHÔNG dùng làm
-    confidence. ``dense_score``/``bm25_score`` được preserve từ input list
-    tương ứng.
+    Đây là implementation gốc, được giữ nguyên để tương thích ngược với
+    test_contracts.py và pipeline mặc định. Weighted RRF được tách sang
+    hàm ``rerank_weighted_rrf`` và chỉ được gọi khi người dùng chọn.
     """
-    results = _fuse(ranked_lists, top_k=top_k, k=k, weights=None)
-    for item in results:
-        item["retrieval_method"] = "hybrid"
+    scores: dict[str, float] = {}
+    items: dict[str, dict] = {}
+    for ranked_list in ranked_lists:
+        for rank, item in enumerate(ranked_list, 1):
+            item_id = item["id"]
+            scores[item_id] = scores.get(item_id, 0.0) + 1.0 / (k + rank)
+            items[item_id] = item
+
+    ranked_ids = sorted(scores, key=scores.get, reverse=True)
+    results: list[dict] = []
+    for item_id in ranked_ids[:top_k]:
+        base = dict(items[item_id])
+        base["score"] = scores[item_id]
+        base["retrieval_method"] = "hybrid"
+        results.append(base)
     return results
 
 
@@ -144,6 +74,8 @@ def rerank_weighted_rrf(
     Nếu weights là ``None`` thì dùng ``[dense_weight, bm25_weight]`` cho 2
     danh sách đầu, còn lại 1.0.
     """
+    if not ranked_lists:
+        return []
     if weights is None:
         weights = []
         for idx in range(len(ranked_lists)):
@@ -153,9 +85,28 @@ def rerank_weighted_rrf(
                 weights.append(bm25_weight)
             else:
                 weights.append(1.0)
-    results = _fuse(ranked_lists, top_k=top_k, k=k, weights=weights)
-    for item in results:
-        item["retrieval_method"] = "hybrid_weighted"
+    if len(weights) != len(ranked_lists):
+        raise ValueError(
+            f"weights length ({len(weights)}) must match ranked_lists ({len(ranked_lists)})"
+        )
+
+    scores: dict[str, float] = {}
+    items: dict[str, dict] = {}
+    for ranked_list, weight in zip(ranked_lists, weights):
+        if weight < 0:
+            raise ValueError("weights must be non-negative")
+        for rank, item in enumerate(ranked_list, 1):
+            item_id = item["id"]
+            scores[item_id] = scores.get(item_id, 0.0) + weight * 1.0 / (k + rank)
+            items[item_id] = item
+
+    ranked_ids = sorted(scores, key=scores.get, reverse=True)
+    results: list[dict] = []
+    for item_id in ranked_ids[:top_k]:
+        base = dict(items[item_id])
+        base["score"] = scores[item_id]
+        base["retrieval_method"] = "hybrid_weighted"
+        results.append(base)
     return results
 
 
@@ -222,4 +173,5 @@ def deduplicate_by_document(
 
 
 if __name__ == "__main__":
-    print("Implement rerank_rrf, then run contract tests.")
+    print("RRF ready. Use rerank_rrf([dense, bm25], top_k=5) or "
+          "rerank_weighted_rrf(..., dense_weight=..., bm25_weight=...).")

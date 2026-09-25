@@ -35,11 +35,7 @@ def test_bigram_expansion_adds_terms():
     assert "IELTS" in expanded
 
 
-def test_hyde_fallback_uses_bigrams(monkeypatch):
-    # Ép provider openai + xóa mọi API key để _hyde_via_llm trả None.
-    monkeypatch.setenv("LLM_PROVIDER", "openai")
-    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
-    monkeypatch.delenv("GROQ_API_KEY", raising=False)
+def test_hyde_fallback_uses_bigrams():
     out = expand_query("IELTS xét tuyển", mode="hyde")
     # No LLM key -> fallback local bigram expansion.
     assert out["method"] == "hyde_fallback_local"

@@ -1,30 +1,110 @@
-# Day 8 — RAG Pipeline
+# K4-L3B RAG Pipeline — Tuyển sinh Đại học Việt Nam
 
-## Mục tiêu
+> Lab Day 8 — Hybrid Retrieval-Augmented Generation pipeline.
+> Chatbot RAG trả lời câu hỏi về quy chế, điều kiện, phương thức xét
+> tuyển đại học Việt Nam, với citation và safe refusal.
 
-Mỗi nhóm xây dựng một chatbot RAG trả lời câu hỏi từ bộ tài liệu do nhóm thu thập. Sản phẩm phải có hybrid retrieval, citation, giao diện chat và báo cáo đánh giá.
+---
 
-Nhóm tự chọn bài toán và thu thập dữ liệu phù hợp; repo không cung cấp dữ liệu mẫu.
+## 1. Project Overview
 
-## Sản phẩm phải nộp
+Dự án xây dựng một pipeline RAG hoàn chỉnh cho đề tài **Tuyển sinh đại học
+Việt Nam**. Mục tiêu:
 
-- Repository nhóm chạy được.
-- Tối thiểu 3 tài liệu chính sách và 5 bài viết/page do nhóm tự thu thập.
-- Pipeline: convert → chunk → index → dense + BM25 → RRF → fallback → generation có citation.
-- Chatbot Streamlit hiển thị câu trả lời và nguồn đã dùng.
-- Golden dataset tối thiểu 15 câu; đánh giá 4 metric và so sánh A/B.
-- `group_project/evaluation/RESULT.md`.
-- Mỗi thành viên nộp báo cáo cá nhân theo template trong `group_project/ịndividual/INDIVIDUAL_REPORT.md`.
+* Cung cấp chatbot trả lời câu hỏi tuyển sinh dựa trên **dữ liệu thật**
+  từ Bộ GD&ĐT và các báo uy tín.
+* Áp dụng **hybrid retrieval** (dense + BM25 + RRF) với **fallback** dựa
+  trên dense cosine score.
+* Sinh câu trả lời có **citation** trỏ về nguồn đã truy xuất.
+* Hỗ trợ **safe refusal** cho câu hỏi ngoài domain.
 
-## Quick start
+## 2. Problem Definition
 
-```bash
-python -m venv .venv
-source .venv/bin/activate       # Windows: .venv\Scripts\activate
+Học sinh và phụ huynh Việt Nam thường gặp khó khăn trong việc tìm câu trả
+lời đáng tin cậy cho các câu hỏi:
+
+* "Điều kiện xét tuyển đại học năm nay là gì?"
+* "Tôi có thể dùng IELTS để xét tuyển không?"
+* "Các phương thức xét tuyển nào đang được áp dụng?"
+* "Bài thi tốt nghiệp THPT 2025 gồm những môn gì?"
+
+Nguồn thông tin phân tán giữa:
+
+* **Văn bản pháp lý** (Thông tư, Quy chế của Bộ GD&ĐT).
+* **Tin tức báo chí** (Thanh Niên, VietnamNet, Dân trí).
+* **Trang tổng hợp** (Tuyensinh247).
+
+Chatbot RAG giúp **gom, trích dẫn, và sinh câu trả lời** từ các nguồn này
+trong một giao diện duy nhất.
+
+## 3. Selected Topic
+
+**Tuyển sinh Đại học Việt Nam** — đã chọn dựa trên:
+
+| Tiêu chí | Điểm (out of 100) |
+| --- | ---: |
+| Chất lượng & uy tín nguồn | 22 |
+| ≥ 3 tài liệu chính sách | 14 |
+| ≥ 5 bài viết công khai | 15 |
+| Độ ổn định dữ liệu | 12 |
+| Tiềm năng truy xuất | 9 |
+| Giá trị demo | 9 |
+| Tiềm năng mở rộng | 9 |
+| **Tổng** | **90** |
+
+Xem chi tiết trong `docs/TOPIC_SELECTION.md`.
+
+## 4. Architecture
+
+```mermaid
+flowchart TD
+    A[Data Sources] --> B[Crawl / Thu thập]
+    B --> C[Markdown Normalization]
+    C --> D[Chunking 500/50]
+    D --> E[BGE-m3 Embedding]
+    E --> F[ChromaDB]
+    D --> G[BM25Plus Index]
+    Q[User Query] --> H[Query Expansion Bonus3]
+    H --> I[Dense Retrieval]
+    H --> J[BM25 Retrieval]
+    I --> K[Weighted RRF Bonus1<br/>dense_weight, bm25_weight]
+    J --> K
+    I --> L[Dense Score Gate<br/>threshold=0.50]
+    L -->|below| M[PageIndex Fallback]
+    L -->|above| K
+    M --> N[Document Dedup Bonus2]
+    K --> N
+    N --> O[Reranker Bonus4<br/>optional]
+    O --> P[Context Reordering]
+    P --> Q2[Conversation Memory Bonus5<br/>query rewrite]
+    Q2 --> R[LLM Generation]
+    R --> S[Citation Grounding Bonus7]
+    S --> T[Source Highlighting Bonus6]
+    T --> U[Streamlit UI<br/>+ Debug Bonus9 + Analytics Bonus10]
+```
+
+Sơ đồ chi tiết xem `docs/ARCHITECTURE.md`.
+
+## 5. Data Sources
+
+* **5 tài liệu chính sách** (PDF) từ Bộ GD&ĐT.
+* **8 bài viết công khai** crawl từ Thanh Niên, VietnamNet, Dân trí,
+  Tuyensinh247.
+
+Chi tiết trong `docs/DATA_SOURCES.md`.
+
+## 6. Environment Setup
+
+Chi tiết từng bước trong `docs/ENVIRONMENT_SETUP.md`. Tóm tắt:
+
+```powershell
+# Windows PowerShell
+py -3.12 -m venv .venv
+.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip setuptools wheel
 python -m pip install -e ".[dev]"
 python -m playwright install chromium
-cp .env.example .env
+copy .env.example .env
 ```
 
 Python bắt buộc: `>=3.10,<3.14`. Đã kiểm thử với **Python 3.11.9**.
@@ -32,10 +112,9 @@ Python bắt buộc: `>=3.10,<3.14`. Đã kiểm thử với **Python 3.11.9**.
 ## 7. `.env` Configuration
 
 ```env
-LLM_PROVIDER=openai          # openai | groq | gemini | anthropic
-LLM_MODEL=                   # để trống dùng model mặc định của provider
+LLM_PROVIDER=openai
+LLM_MODEL=
 OPENAI_API_KEY=
-GROQ_API_KEY=                # dùng khi LLM_PROVIDER=groq
 GEMINI_API_KEY=
 ANTHROPIC_API_KEY=
 EMBEDDING_PROVIDER=sentence_transformers
@@ -43,26 +122,9 @@ EMBEDDING_MODEL=BAAI/bge-m3
 PAGEINDEX_API_KEY=
 JINA_API_KEY=
 SCORE_THRESHOLD=0.50
-DENSE_WEIGHT=1.5             # Bonus 1 — Weighted RRF
-BM25_WEIGHT=1.0              # Bonus 1 — Weighted RRF
 ```
 
-> Không commit file `.env` thật có chứa secret. Mọi key đều là tuỳ chọn;
-> thiếu key nào thì provider đó trả về chuỗi rỗng và pipeline fallback
-> sang safe refusal (không bao giờ crash).
-
-### Groq — provider miễn phí, nhanh
-
-Pipeline hỗ trợ **Groq Cloud** thông qua OpenAI-compatible API. Cách
-dùng:
-
-```env
-LLM_PROVIDER=groq
-GROQ_API_KEY=gsk-...
-# LLM_MODEL=llama-3.3-70b-versatile    # tuỳ chọn — mặc định llama-3.1-8b-instant
-```
-
-Groq dùng cùng `openai` SDK với `base_url=https://api.groq.com/openai/v1` — không cần thêm package. Test nằm ở `tests/test_groq_provider.py`. Model mặc định hiện tại là `qwen/qwen3.8-27b` (chat model phổ biến trên Groq Cloud, hỗ trợ tiếng Việt); có thể override qua `LLM_MODEL` với model Groq khác như `llama-3.3-70b-versatile` hoặc `openai/gpt-oss-120b` (tuỳ quyền truy cập của account).
+> Không commit file `.env` thật có chứa secret. Mọi key đều là tuỳ chọn.
 
 ## 8. Data Collection
 
@@ -107,90 +169,7 @@ cosine distance → similarity.
 `src/task7_reranking.py` — `RRF = sum(1/(k+rank))`, rank bắt đầu từ 1,
 `k=60`. RRF chỉ chạy **một lần** ở Task 9.
 
-## 14. Audit-Driven Architecture (Evidence-Gating, RETRIEVAL ≠ EVIDENCE ≠ CITATION)
-
-Mọi câu hỏi đi qua 7 bước có thứ tự. Ba khái niệm **bắt buộc phân biệt**:
-
-* **Retrieval**: candidate chunks trả về bởi dense + BM25 + RRF.
-* **Evidence**: tập con của retrieval đã qua per-chunk gate (dense ≥ 0.50
-  VÀ keyword_overlap ≥ 0.20).
-* **Citation**: tập con của evidence đã dedup theo document, cap 1–3.
-
-```
-                  ┌──────────────────────────────────┐
-                  │  Step 1 — Domain Gate             │
-                  │  (classify_domain, deterministic) │
-                  └──────────────────────────────────┘
-                                  │
-              ┌───────────────────┼─────────────────────┐
-              │ OUT_OF_DOMAIN (refuse; sources=[])     │
-              ▼                                          ▼
-   ┌────────────────────────┐            ┌────────────────────────────────┐
-   │ Step 2 — Candidate     │            │ Step 3 — Evidence-Quality Gate │
-   │ Retrieval (Dense+BM25, │            │ (per-chunk score_chunks)       │
-   │ fallback khi dense<thr)│            │                                │
-   └────────────────────────┘            └────────────────────────────────┘
-              │                                          │
-              ▼                                          ▼
-   ┌────────────────────────┐            ┌────────────────────────────────┐
-   │ Step 4 — RRF fusion    │            │ Step 4 — Conflict detection    │
-   │ (rerank_rrf / Weighted │            │ (e.g. lớp 1 + ĐH → clarify)   │
-   │  RRF, chạy 1 lần)      │            └────────────────────────────────┘
-   └────────────────────────┘                          │
-              │                                          ▼
-              ▼                            ┌────────────────────────────────┐
-   ┌────────────────────────┐   passed    │ Step 5 — Document Dedup        │
-   │ Step 5 — Per-chunk     │ ──────────► │ (deduplicate_by_document)      │
-   │ evidence gate          │             └────────────────────────────────┘
-   │ (score_chunks: dense & │                          │
-   │  keyword_overlap)      │                          ▼
-   └────────────────────────┘            ┌────────────────────────────────┐
-              │                          │ Step 6 — Final Evidence        │
-              ▼                          │ (cap 1–3 documents, cap=3)     │
-   rejected_candidates (debug only)     └────────────────────────────────┘
-              │                                          │
-              ▼                                          ▼
-   ┌────────────────────────┐            ┌────────────────────────────────┐
-   │ Step 7 — Citation      │            │ Step 7 — Generation + Citation│
-   │ Honesty: rejected ≠    │            │ Validation (Bonus 7)          │
-   │ cited                  │            │ [n] trỏ về final_evidence[n-1] │
-   └────────────────────────┘            └────────────────────────────────┘
-```
-
-**Score semantics — không bao giờ trộn:**
-
-| Trường | Ý nghĩa | Khoảng | Dùng cho |
-|---|---|---|---|
-| `dense_score` | cosine similarity gốc | [0, 1] | Threshold, evidence gate, debug label |
-| `bm25_score` | BM25Plus | ≥ 0 | Evidence gate, debug |
-| `rrf_score` (≈ `score`) | fusion ranking metric | (0, 2/61] | Sắp xếp thứ tự top-K |
-| `keyword_overlap` | tỉ lệ từ khóa chung | [0, 1] | Evidence gate |
-
-`rrf_score = 0.031` **KHÔNG BAO GIỜ** được hiểu thành "3.1% confidence".
-Các nhãn "High / Medium / Low" trong UI tính từ `dense_score` (hoặc
-fallback RRF magnitude khi dense không có).
-
-**Answerability state machine:**
-
-```
-                 ┌──── query
-                 ▼
-        DOMAIN_CHECK (classify_domain)
-        ├── OUT_OF_DOMAIN  → refuse  (Vietnamese refusal, sources=[])
-        │
-        ▼
-        EVIDENCE_CHECK (assess_evidence)
-        ├── EVIDENCE_INSUFFICIENT → refuse (sources=[])
-        ├── EVIDENCE_WEAK         → clarify (sources=[])
-        └── EVIDENCE_SUFFICIENT   → answer (sources=final_evidence, 1–3)
-```
-
-**Rejected candidates ≠ Citations:** mọi chunk bị loại bởi evidence gate
-được surface trong `render_rejected_candidates_panel()` chỉ khi bật
-Debug mode trên sidebar. Panel này ghi rõ **"KHÔNG dùng làm nguồn trích
-dẫn"** và không bao giờ xuất hiện trong phần "Nguồn trích dẫn" của user.
-
-## 15. Fallback
+## 14. Fallback
 
 `src/task9_retrieval_pipeline.py` — dùng `best_dense_score < 0.50` để
 trigger PageIndex fallback. Threshold đã hiệu chỉnh trên tập in-domain
@@ -300,60 +279,16 @@ copy .env.example .env
 python -m src.task1_collect_legal_docs
 python -m src.task2_crawl_news
 python -m src.task3_convert_markdown
-
-# 2. Index và kiểm tra contract
 python -m src.task4_chunking_indexing
 pytest -q
-
-# 3. Chạy sản phẩm
 streamlit run app.py
 ```
 
-## Lộ trình 3 giờ
+## Verification kết quả
 
-* **Tests**: `pytest -q` → **109/109 pass** (15 contract + 5 acceptance + 52 unit bonus + 20 integration + 7 real-pipeline e2e + 6 Groq + 4 env-parsing).
+* **Tests**: `pytest -q` → **92/92 pass** (15 contract + 5 acceptance + 52 unit bonus + 20 integration).
 * **Streamlit**: HTTP 200 trên `http://127.0.0.1:8765/` (UI tích hợp Bonus 1, 2,
   5, 6, 7, 9, 10).
 * **Retrieval**: dense + BM25 + RRF trả về 5 chunks cho truy vấn tiếng Việt.
 * **A/B**: chi tiết trong `group_project/evaluation/RESULT.md`.
 * **Bonus A/B/C/D**: chi tiết trong `reports/BONUS_IMPLEMENTATION.md`.
-
-## Real End-to-End Verification
-
-Pipeline thật từ PDF/news → Markdown → chunks → BGE-m3 embeddings → ChromaDB → BM25 → RRF → generation. Không mock, không hard-coded retrieval.
-
-**Runtime evidence (smoke test, captured 2026-09-25):**
-
-```
-Documents loaded        : 13        (5 legal PDFs + 8 news articles)
-Chunks in ChromaDB      : 276       (recursive 500/50)
-Embedding model         : BAAI/bge-m3
-Embedding dim           : 1024      (verified)
-Distinct sources        : 9         (MOET, VietnamNet, Thanh Niên, Dân trí, Tuyensinh247, ...)
-
-Query: "IELTS có được sử dụng để xét tuyển đại học không?"
-  DENSE  top-1: legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1  (cosine 0.7066)
-  BM25   top-1: legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1  (BM25+ 50.41)
-  HYBRID top-1: legal/quy_che_ngoai_ngu_dau_vao.md::chunk-1  (RRF 0.0328)
-  GENERATION (Groq qwen/qwen3.8-27b): "IELTS có ... [1] ... [4][5]"
-  citation_check: valid=True, grounded_ratio=1.0, total_refs=5
-```
-
-Reproduction scripts:
-
-```bash
-python scripts/build_index.py            # idempotent re-index
-python scripts/smoke_test_rag.py         # indexing report + sample retrieval + gen
-python scripts/multi_query_test.py       # 5 query types (factual/paraphrase/keyword/multi/OOD)
-python scripts/evaluate_retrieval.py      # dense vs hybrid RRF on 22 golden cases
-```
-
-Multi-query test (`reports/multi_query_test.json`):
-- Factual, Paraphrase, Keyword-heavy, Multi-document: dense top-1 score 0.55–0.71 — relevant chunks.
-- OOD "Bitcoin": dense top-1 score 0.47 < 0.5 threshold — fallback path triggered (no fake answer).
-
-Retrieval evaluation (`group_project/evaluation/retrieval_evaluation.json`):
-- Dense-only: CP=0.560, CR=0.925, source_hit=1.00 (in-domain).
-- Hybrid RRF: CP=0.540, CR=0.875, source_hit=0.95 (in-domain). Honest verdict: dense wins slightly on this corpus; BM25 adds noise.
-
-Báo cáo đầy đủ: `reports/REAL_PIPELINE_VERIFICATION.md` (corpus size, every stage verified, known limitations).
